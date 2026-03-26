@@ -4,7 +4,7 @@
   "description": "Site vitrine statique, léger et prêt au déploiement.",
   "main": "script.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --minify && node build.js",
     "dev": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --watch"
   },
   "repository": {
