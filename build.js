@@ -14,6 +14,7 @@ const FILES = [
 // Clean & create output dir
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'dist'), { recursive: true });
+fs.mkdirSync(path.join(OUT, 'fonts'), { recursive: true });
 
 // Copy static files
 for (const f of FILES) {
@@ -23,4 +24,10 @@ for (const f of FILES) {
 // Copy compiled CSS
 fs.copyFileSync('dist/styles.css', path.join(OUT, 'dist', 'styles.css'));
 
-console.log(`Built _site/ with ${FILES.length + 1} files`);
+// Copy fonts
+const fontFiles = fs.readdirSync('fonts').filter(f => f.endsWith('.woff2'));
+for (const f of fontFiles) {
+  fs.copyFileSync(path.join('fonts', f), path.join(OUT, 'fonts', f));
+}
+
+console.log(`Built _site/ with ${FILES.length + 1 + fontFiles.length} files`);
