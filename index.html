@@ -72,6 +72,7 @@
                     <a href="#vision" class="text-[13px] text-[#8A8F98] hover:text-[#EEEEF0] transition-colors font-medium">Duo</a>
                     <a href="#approche" class="text-[13px] text-[#8A8F98] hover:text-[#EEEEF0] transition-colors font-medium">Méthode</a>
                     <a href="#parcours" class="text-[13px] text-[#8A8F98] hover:text-[#EEEEF0] transition-colors font-medium">Expérience</a>
+                    <a href="#offres" class="text-[13px] text-[#7568FF] hover:text-[#9F97FF] transition-colors font-medium">Offres</a>
                     <a href="#ressources" class="text-[13px] text-[#8A8F98] hover:text-[#EEEEF0] transition-colors font-medium">Ressources</a>
                     <div class="w-px h-4 bg-[#2E3138]" aria-hidden="true"></div>
                     <button onclick="showView('meeting')" class="text-[13px] text-[#7568FF] hover:text-[#9F97FF] transition-colors font-medium flex items-center gap-1.5 group cursor-pointer bg-transparent border-none">
@@ -106,6 +107,7 @@
             <a href="#vision" onclick="mobileNavClick(event, 'vision')" class="text-[#EEEEF0] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer">Duo</a>
             <a href="#approche" onclick="mobileNavClick(event, 'approche')" class="text-[#EEEEF0] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer">Méthode</a>
             <a href="#parcours" onclick="mobileNavClick(event, 'parcours')" class="text-[#EEEEF0] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer">Expérience</a>
+            <a href="#offres" onclick="mobileNavClick(event, 'offres')" class="text-[#7568FF] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer">Offres</a>
             <a href="#ressources" onclick="mobileNavClick(event, 'ressources')" class="text-[#EEEEF0] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer">Ressources</a>
 
             <button onclick="toggleMobileMenu(); showView('meeting')" class="text-[#7568FF] font-display font-medium text-xl flex items-center gap-2 text-left py-2 bg-transparent border-none w-full cursor-pointer">
@@ -350,6 +352,63 @@
                         <p class="text-[#8A8F98] text-[15px] mb-6 max-w-2xl leading-relaxed text-balance">Freelance en gestion de projet graphique et print branding. L'école du terrain et de l'autonomie.</p>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- Bandeau Offres -->
+        <section id="offres" class="relative overflow-hidden border-t border-[#2E3138]">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#7568FF]/10 via-[#7568FF]/5 to-transparent pointer-events-none"></div>
+            <div class="absolute top-[-50%] left-[-10%] w-[600px] h-[600px] bg-[#7568FF] rounded-full blur-[160px] opacity-[0.07] pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10">
+                <div class="text-center mb-14">
+                    <span class="text-[#7568FF] font-mono text-[11px] uppercase tracking-wider mb-4 block">/// Offres</span>
+                    <h2 class="text-2xl md:text-4xl font-display font-bold text-[#EEEEF0] mb-4 text-balance">Prêt à passer à l'action&nbsp;?</h2>
+                    <p class="text-[#8A8F98] text-[16px] leading-relaxed max-w-2xl mx-auto text-balance">Trois formats d'accompagnement, selon votre contexte et vos ambitions.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <!-- Entreprises -->
+                    <a href="https://offres.liut.me/#/entreprises" target="_blank" rel="noopener noreferrer" class="group relative bg-[#141518]/80 backdrop-blur-md border border-[#2E3138] rounded-2xl p-7 transition-all duration-300 hover:border-[#7568FF]/40 hover:-translate-y-1">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#7568FF]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="p-2.5 rounded-xl bg-[#7568FF]/10 text-[#7568FF]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#2E3138] group-hover:text-[#7568FF] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                            </div>
+                            <h3 class="text-[#EEEEF0] font-display font-bold text-lg mb-2">Entreprises</h3>
+                            <p class="text-[14px] text-[#8A8F98] leading-relaxed text-balance">Structurer la croissance et aligner vos équipes sur l'essentiel.</p>
+                        </div>
+                    </a>
+                    <!-- Entrepreneurs -->
+                    <a href="https://offres.liut.me/#/entrepreneurs" target="_blank" rel="noopener noreferrer" class="group relative bg-[#141518]/80 backdrop-blur-md border border-[#2E3138] rounded-2xl p-7 transition-all duration-300 hover:border-[#7568FF]/40 hover:-translate-y-1">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#7568FF]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="p-2.5 rounded-xl bg-[#7568FF]/10 text-[#7568FF]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#2E3138] group-hover:text-[#7568FF] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                            </div>
+                            <h3 class="text-[#EEEEF0] font-display font-bold text-lg mb-2">Entrepreneurs</h3>
+                            <p class="text-[14px] text-[#8A8F98] leading-relaxed text-balance">Un allié pour avancer vite sans porter le projet seul.</p>
+                        </div>
+                    </a>
+                    <!-- IA -->
+                    <a href="https://offres.liut.me/#/ia" target="_blank" rel="noopener noreferrer" class="group relative bg-[#141518]/80 backdrop-blur-md border border-[#2E3138] rounded-2xl p-7 transition-all duration-300 hover:border-[#7568FF]/40 hover:-translate-y-1">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#7568FF]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="p-2.5 rounded-xl bg-[#7568FF]/10 text-[#7568FF]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#2E3138] group-hover:text-[#7568FF] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                            </div>
+                            <h3 class="text-[#EEEEF0] font-display font-bold text-lg mb-2">Intelligence Artificielle</h3>
+                            <p class="text-[14px] text-[#8A8F98] leading-relaxed text-balance">Intégrer l'IA dans votre quotidien, concrètement et sans bullshit.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
