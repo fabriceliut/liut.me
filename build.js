@@ -9,6 +9,7 @@ const FILES = [
   'sitemap.xml',
   'logo-liut.webp',
   'profile-banana3pro.jpg',
+  'og-image.jpg',
 ];
 
 // Clean & create output dir
