@@ -48,6 +48,8 @@ function toggleMobileMenu() {
 }
 
 // 4. Navigation Mobile
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function mobileNavClick(event, sectionId) {
     event.preventDefault();
     toggleMobileMenu();
@@ -60,20 +62,26 @@ function mobileNavClick(event, sectionId) {
     setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
         }
     }, 150);
 }
 
-// 5. Effet de Scroll sur Navbar
+// 5. Effet de Scroll sur Navbar (throttlé via requestAnimationFrame)
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 20) {
-        nav.classList.add('bg-[#0B0C0E]/80', 'backdrop-blur-md', 'border-[#2E3138]');
-        nav.classList.remove('py-6', 'border-transparent');
-        nav.classList.add('py-3');
-    } else {
-        nav.classList.remove('bg-[#0B0C0E]/80', 'backdrop-blur-md', 'border-[#2E3138]', 'py-3');
-        nav.classList.add('py-6', 'border-transparent');
-    }
-});
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 20) {
+            nav.classList.add('bg-[#0B0C0E]/80', 'backdrop-blur-md', 'border-[#2E3138]');
+            nav.classList.remove('py-6', 'border-transparent');
+            nav.classList.add('py-3');
+        } else {
+            nav.classList.remove('bg-[#0B0C0E]/80', 'backdrop-blur-md', 'border-[#2E3138]', 'py-3');
+            nav.classList.add('py-6', 'border-transparent');
+        }
+        scrollTicking = false;
+    });
+}, { passive: true });
