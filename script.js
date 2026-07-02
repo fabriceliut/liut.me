@@ -124,3 +124,44 @@ document.querySelectorAll('details').forEach((d) => {
     s.setAttribute('aria-expanded', d.open ? 'true' : 'false');
     d.addEventListener('toggle', () => s.setAttribute('aria-expanded', d.open ? 'true' : 'false'));
 });
+
+// 8. Logos clients : garantit l'affichage (monogramme de secours si favicon KO)
+(function () {
+    const logos = document.querySelectorAll('img[src*="s2/favicons"]');
+    if (!logos.length) return;
+    const toFallback = (img) => {
+        if (img.dataset.fb === '1') return;
+        img.dataset.fb = '1';
+        const pill = img.closest('span');
+        const label = pill ? (pill.textContent || '').trim() : '';
+        const letter = label ? label[0].toUpperCase() : '•';
+        const mono = document.createElement('span');
+        mono.className = 'logo-fallback';
+        mono.textContent = letter;
+        mono.setAttribute('aria-hidden', 'true');
+        img.replaceWith(mono);
+    };
+    logos.forEach((img) => {
+        img.addEventListener('error', () => toFallback(img), { once: true });
+        // Image déjà en échec avant l'attache du handler (script deferred)
+        if (img.complete && img.naturalWidth === 0) toFallback(img);
+    });
+})();
+
+// 9. Scrollspy nav : surligne la section active (index éditorial)
+(function () {
+    const links = Array.from(document.querySelectorAll('#nav-menu-home a[href^="#"]'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+    const sections = Array.from(byId.keys())
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+    if (!sections.length) return;
+    const setActive = (id) => links.forEach((a) => a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id));
+    const io = new IntersectionObserver((entries) => {
+        const visible = entries.filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] });
+    sections.forEach((s) => io.observe(s));
+})();

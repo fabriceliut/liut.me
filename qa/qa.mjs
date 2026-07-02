@@ -72,6 +72,23 @@ const aria = await summary.getAttribute('aria-expanded');
 ok('Accordéon ouvre', open === true);
 ok('aria-expanded synchronisé', aria === 'true', `aria-expanded="${aria}"`);
 
+// Logos références : chaque pastille affiche un favicon OU un monogramme de secours
+await page.evaluate(() => window.showView && window.showView('home'));
+await page.waitForTimeout(300);
+const logoStats = await page.evaluate(() => {
+  const pills = Array.from(document.querySelectorAll('#parcours span'))
+    .filter((s) => s.querySelector('img[src*="s2/favicons"], .logo-fallback'));
+  let shown = 0;
+  for (const p of pills) {
+    const img = p.querySelector('img');
+    const fb = p.querySelector('.logo-fallback');
+    if (fb) shown++;
+    else if (img && img.complete && img.naturalWidth > 0) shown++;
+  }
+  return { total: pills.length, shown };
+});
+ok('Tous les logos affichés (favicon ou monogramme)', logoStats.total > 0 && logoStats.shown === logoStats.total, `${logoStats.shown}/${logoStats.total}`);
+
 // Console propre — on distingue erreurs same-origin (les nôtres) vs externes
 const origin = new URL(BASE).origin;
 const ownBad = badRequests.filter((r) => r.url.startsWith(origin) && !r.url.endsWith('/favicon.ico'));
