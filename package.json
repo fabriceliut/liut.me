@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --minify && node build.js",
     "dev": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
-    "qa": "npm run build && python3 -m http.server 8092 --directory _site & SRV=$!; sleep 2; BASE_URL=http://localhost:8092 node qa/qa.mjs; RC=$?; kill $SRV 2>/dev/null; exit $RC"
+    "qa": "npm run build && sh -c 'python3 -m http.server 8092 --directory _site >/tmp/qa-http.log 2>&1 & SRV=$!; trap \"kill $SRV 2>/dev/null\" EXIT; sleep 2; BASE_URL=http://localhost:8092 node qa/qa.mjs'"
   },
   "repository": {
     "type": "git",
