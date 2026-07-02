@@ -1,0 +1,25 @@
+{
+  "name": "Liut — Allié opérationnel des dirigeants",
+  "short_name": "Liut",
+  "description": "Allié opérationnel des dirigeants à Lyon. On donne à votre entreprise l'organisation qui la fait grandir.",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B0C0E",
+  "theme_color": "#0B0C0E",
+  "icons": [
+    {
+      "src": "/logo-liut.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-liut.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

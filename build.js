@@ -7,6 +7,8 @@ const FILES = [
   'script.js',
   'robots.txt',
   'sitemap.xml',
+  'llms.txt',
+  'manifest.webmanifest',
   'logo-liut.webp',
   'profile-banana3pro.jpg',
   'og-image.jpg',

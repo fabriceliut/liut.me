@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --minify && node build.js",
-    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
+    "qa": "npm run build && (cd _site && python3 -m http.server 8092 & SRV=$!; sleep 2; cd ..; BASE_URL=http://localhost:8092 node qa/qa.mjs; RC=$?; kill $SRV; exit $RC)"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/fabriceliut/liut.me#readme",
   "devDependencies": {
+    "playwright": "^1.61.1",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19"
   }

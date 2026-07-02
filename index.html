@@ -39,32 +39,58 @@
     <!-- Compiled Tailwind CSS (includes @font-face) -->
     <link rel="stylesheet" href="/dist/styles.css">
 
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest">
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Liut",
-      "url": "https://liut.me/",
-      "description": "Allié opérationnel des dirigeants et entrepreneurs. On donne à votre entreprise l'organisation qui la fait grandir.",
-      "founder": {
-        "@type": "Person",
-        "name": "Fabrice Liut",
-        "url": "https://www.linkedin.com/in/liut"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lyon",
-        "addressRegion": "Auvergne-Rhône-Alpes",
-        "addressCountry": "FR"
-      },
-      "areaServed": "FR",
-      "sameAs": [
-        "https://www.linkedin.com/in/liut",
-        "https://liut.substack.com/",
-        "https://www.youtube.com/@Fabriceliut"
-      ],
-      "inLanguage": "fr-FR"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://liut.me/#person",
+          "name": "Fabrice Liut",
+          "url": "https://liut.me/",
+          "jobTitle": "Associé Opérationnel & Stratégique",
+          "worksFor": { "@id": "https://liut.me/#organization" },
+          "sameAs": [
+            "https://www.linkedin.com/in/liut",
+            "https://liut.substack.com/",
+            "https://www.youtube.com/@Fabriceliut"
+          ]
+        },
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://liut.me/#organization",
+          "name": "Liut",
+          "url": "https://liut.me/",
+          "logo": "https://liut.me/logo-liut.webp",
+          "image": "https://liut.me/og-image.jpg",
+          "description": "Allié opérationnel des dirigeants et entrepreneurs. On donne à votre entreprise l'organisation qui la fait grandir.",
+          "founder": { "@id": "https://liut.me/#person" },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lyon",
+            "addressRegion": "Auvergne-Rhône-Alpes",
+            "addressCountry": "FR"
+          },
+          "areaServed": "FR",
+          "sameAs": [
+            "https://www.linkedin.com/in/liut",
+            "https://liut.substack.com/",
+            "https://www.youtube.com/@Fabriceliut"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://liut.me/#website",
+          "url": "https://liut.me/",
+          "name": "Liut",
+          "publisher": { "@id": "https://liut.me/#organization" },
+          "inLanguage": "fr-FR"
+        }
+      ]
     }
     </script>
 </head>
