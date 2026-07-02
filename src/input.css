@@ -124,6 +124,8 @@ details summary::-webkit-details-marker { display: none; }
   font-family: var(--font-mono); font-size: 9px; font-weight: 600; line-height: 1;
   background: var(--color-accent-soft); color: var(--color-accent);
 }
+/* Aspect-ratio strict sur les favicons (évite le warning Lighthouse) */
+img[src*="s2/favicons"] { aspect-ratio: 1 / 1; width: 16px; height: 16px; }
 
 /* Nav scrollspy : lien de la section active (index éditorial) */
 #nav-menu-home a.nav-active { color: var(--color-text); }
