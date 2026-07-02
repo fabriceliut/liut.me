@@ -33,7 +33,7 @@
     <link rel="dns-prefetch" href="https://www.google.com">
 
     <!-- Preload critical fonts -->
-    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Compiled Tailwind CSS (includes @font-face) -->
@@ -69,6 +69,8 @@
     </script>
 </head>
 <body class="bg-[#0B0C0E] text-[#EEEEF0] antialiased selection:bg-[#7568FF] selection:text-white">
+
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
 
     <div class="grain-overlay" aria-hidden="true"></div>
 
@@ -146,7 +148,7 @@
     <main id="view-home" class="fade-in block">
 
         <!-- Hero -->
-        <header class="pt-40 pb-24 px-6 relative overflow-hidden border-b border-[#2E3138]">
+        <header id="main-content" class="pt-40 pb-24 px-6 relative overflow-hidden border-b border-[#2E3138]">
             <div class="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#7568FF] rounded-full blur-[140px] opacity-[0.06] pointer-events-none" aria-hidden="true" style="contain:layout paint;will-change:auto"></div>
 
             <div class="max-w-6xl mx-auto relative z-10">
@@ -236,7 +238,7 @@
         <section id="approche" class="py-28 px-6 border-b border-[#2E3138]">
             <div class="max-w-6xl mx-auto">
                 <div class="mb-14">
-                    <span class="text-[#7568FF] font-mono text-[11px] uppercase tracking-wider mb-4 block ml-1">/// Méthode</span>
+                    <div class="sec-eyebrow"><span>/// Méthode</span><span class="num">01</span></div>
                     <h2 class="text-3xl md:text-5xl font-display font-semibold tracking-tight text-[#EEEEF0] text-balance">Ce que je fais <span class="text-[#7568FF]">concrètement</span>.</h2>
                 </div>
                 <div class="flex flex-wrap justify-center gap-8">
@@ -283,7 +285,7 @@
         <section id="parcours" class="py-28 px-6 border-b border-[#2E3138] bg-[#0E0F11] relative overflow-hidden">
             <div class="max-w-4xl mx-auto relative z-10">
                 <div class="mb-14">
-                    <span class="text-[#7568FF] font-mono text-[11px] uppercase tracking-wider mb-4 block ml-1">/// Expérience</span>
+                    <div class="sec-eyebrow"><span>/// Expérience</span><span class="num">02</span></div>
                     <h2 class="text-3xl md:text-5xl font-display font-semibold tracking-tight text-[#EEEEF0] text-balance">+ de 15 ans de terrain</h2>
                 </div>
                 <div class="relative border-l border-[#2E3138] ml-4 space-y-20">
@@ -384,7 +386,7 @@
             <div class="absolute top-[-50%] left-[-10%] w-[600px] h-[600px] bg-[#7568FF] rounded-full blur-[160px] opacity-[0.07] pointer-events-none" aria-hidden="true"></div>
             <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10">
                 <div class="text-center mb-14">
-                    <span class="text-[#7568FF] font-mono text-[11px] uppercase tracking-wider mb-4 block">/// Offres</span>
+                    <div class="sec-eyebrow justify-center"><span>/// Offres</span><span class="num">03</span></div>
                     <h2 class="text-2xl md:text-4xl font-display font-bold text-[#EEEEF0] mb-4 text-balance">Trois façons d'avancer ensemble</h2>
                     <p class="text-[#8A8F98] text-[16px] leading-relaxed max-w-2xl mx-auto text-balance">Trois formats d'accompagnement, selon votre contexte et vos ambitions.</p>
                 </div>
@@ -439,7 +441,7 @@
         <section id="ressources" class="py-28 px-6 border-t border-[#2E3138] bg-[#0B0C0E]">
             <div class="max-w-6xl mx-auto">
                 <div class="mb-14">
-                    <span class="text-[#7568FF] font-mono text-[11px] uppercase tracking-wider mb-4 block ml-1">/// Boîte à outils</span>
+                    <div class="sec-eyebrow"><span>/// Boîte à outils</span><span class="num">04</span></div>
                     <h2 class="text-3xl md:text-5xl font-display font-semibold tracking-tight text-[#EEEEF0] text-balance">Ressources &amp; Explorations</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -656,6 +658,38 @@
                         <li class="flex gap-3"><span class="text-[#7568FF]">→</span> Je mets de l'ordre dans l'organisation (rôles, priorités, outils).</li>
                         <li class="flex gap-3"><span class="text-[#7568FF]">→</span> Je fais avancer les sujets sur lesquels tu veux gagner du terrain.</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- ScoreCards ROI (signature) -->
+            <div class="mb-16">
+                <div class="sec-eyebrow"><span>/// Preuves chiffrées</span><span class="num">05</span></div>
+                <h2 class="text-3xl font-display font-bold text-[#EEEEF0] mb-10">Des résultats mesurés</h2>
+                <div class="scorecards">
+                    <div class="scorecard" data-count="3185">
+                        <div class="sc-label">Temps récupéré / an</div>
+                        <div class="sc-value"><span class="num">0</span><span class="unit">h</span></div>
+                        <div class="sc-bar"><i style="--val:82%"></i></div>
+                        <div class="sc-caption">≈ 2 ETP sans recruter · x4,5 vs effort</div>
+                    </div>
+                    <div class="scorecard">
+                        <div class="sc-label">Installation PAC</div>
+                        <div class="sc-value">20<span class="unit">min</span></div>
+                        <div class="sc-ba"><span class="before">48 h</span><span class="arrow">→</span><span class="after">20 min</span></div>
+                        <div class="sc-caption">BDR Therma · appli cadrée en 5 jours</div>
+                    </div>
+                    <div class="scorecard" data-count="12">
+                        <div class="sc-label">Temps facturable</div>
+                        <div class="sc-value"><span style="color:var(--color-accent)">+</span><span class="num">0</span><span class="unit">%</span></div>
+                        <div class="sc-bar"><i style="--val:62%"></i></div>
+                        <div class="sc-caption">PME IT · délais −12 %, qualité +18 %</div>
+                    </div>
+                    <div class="scorecard">
+                        <div class="sc-label">Retour sur période</div>
+                        <div class="sc-value">x5,5</div>
+                        <div class="sc-bar"><i style="--val:95%"></i></div>
+                        <div class="sc-caption">Effet cumulé organisation + outils</div>
+                    </div>
                 </div>
             </div>
 
