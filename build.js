@@ -10,7 +10,7 @@ const FILES = [
   'llms.txt',
   'manifest.webmanifest',
   'logo-liut.webp',
-  'profile-banana3pro.jpg',
+  'profile-avatar-2027.jpg',
   'og-image.jpg',
 ];
 

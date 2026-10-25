@@ -18,8 +18,9 @@ script.js           ← navigation, menu mobile, scroll navbar
 dist/styles.css     ← CSS compilé (output Tailwind)
 src/input.css       ← CSS source (directives Tailwind + custom)
 tailwind.config.js  ← config Tailwind (fonts, safelist)
-logo-liut.webp      ← favicon / logo
-profile-banana3pro.jpg ← photo de profil
+logo-liut.webp          ← favicon / logo
+profile-avatar-2027.jpg ← photo de profil
+og-image.jpg            ← image de partage Open Graph (1200 × 630)
 robots.txt          ← règles SEO
 sitemap.xml         ← sitemap
 sources/            ← fichier source de référence
@@ -61,5 +62,4 @@ Génère `dist/styles.css` minifié.
 
 ## À faire / noter
 
-- Le fichier `og-image.jpg` référencé dans les meta OG n'existe pas encore → à créer (1200×630px recommandé)
-- Les images `logo-liut.webp` et `profile-banana3pro.jpg` sont récupérées depuis le site live
+- Les images de profil source sont conservées dans `sources/`
