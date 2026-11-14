@@ -37,28 +37,45 @@ function showView(viewName) {
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const toggle = document.getElementById('mobile-menu-toggle');
+    const menuIcon = document.getElementById('menu-icon-svg');
     if (!menu) return;
     const opening = menu.classList.contains('hidden');
     if (opening) {
         menu.classList.remove('hidden');
         menu.classList.add('flex');
-        document.body.classList.add('overflow-hidden-body');
+        document.body.dataset.menuOverflow = document.body.style.overflow || '';
+        document.body.style.overflow = 'hidden';
+        menu.setAttribute('aria-hidden', 'false');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'true');
             toggle.setAttribute('aria-label', 'Fermer le menu');
+        }
+        if (menuIcon) {
+            menuIcon.innerHTML = '<line x1="5" x2="19" y1="5" y2="19"/><line x1="19" x2="5" y1="5" y2="19"/>';
         }
         menu.querySelector('a, button')?.focus();
     } else {
         menu.classList.add('hidden');
         menu.classList.remove('flex');
-        document.body.classList.remove('overflow-hidden-body');
+        document.body.style.overflow = document.body.dataset.menuOverflow || '';
+        delete document.body.dataset.menuOverflow;
+        menu.setAttribute('aria-hidden', 'true');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'false');
             toggle.setAttribute('aria-label', 'Ouvrir le menu');
             toggle.focus();
         }
+        if (menuIcon) {
+            menuIcon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+        }
     }
 }
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !document.getElementById('mobile-menu')?.classList.contains('hidden')) {
+        toggleMobileMenu();
+    }
+});
 
 // 4. Navigation Mobile
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

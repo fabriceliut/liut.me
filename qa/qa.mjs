@@ -29,14 +29,21 @@ for (const w of [320, 768, 1280]) {
   await page.screenshot({ path: `${OUT}/home-${w}.png`, fullPage: true });
   ok(`Screenshot home ${w}px`, true);
 }
-await page.setViewportSize({ width: 390, height: 844 });
+await page.setViewportSize({ width: 390, height: 568 });
 const menuToggle = page.locator('#mobile-menu-toggle');
 await menuToggle.click();
 ok('Menu mobile ouvert', await page.locator('#mobile-menu.flex').count() === 1);
 ok('aria-expanded synchronisé', await menuToggle.getAttribute('aria-expanded') === 'true');
+ok('État visuel du bouton synchronisé', await menuToggle.locator('#menu-icon-svg line').count() === 2);
+ok('Panneau mobile scrollable', await page.locator('#mobile-menu').evaluate((el) => {
+  el.scrollTop = 120;
+  return el.classList.contains('overflow-y-auto') && el.scrollTop > 0;
+}));
+ok('Scroll de la page verrouillé', await page.evaluate(() => document.body.style.overflow === 'hidden'));
 await page.getByRole('link', { name: 'Offres' }).last().click();
 await page.waitForTimeout(250);
 ok('Ancre mobile synchronisée', await page.evaluate(() => location.hash === '#offres'));
+ok('Menu mobile refermé', await menuToggle.getAttribute('aria-expanded') === 'false' && await page.locator('#mobile-menu.hidden').count() === 1);
 await page.setViewportSize({ width: 1280, height: 900 });
 
 const meeting = await page.goto(BASE + '/comment-ca-se-passe/', { waitUntil: 'networkidle' });
