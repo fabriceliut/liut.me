@@ -1,0 +1,24 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=2592000, immutable
+/logo-liut.webp
+  Cache-Control: public, max-age=31536000, immutable
+/logo-liut-192.svg
+  Cache-Control: public, max-age=31536000, immutable
+/logo-liut-512.svg
+  Cache-Control: public, max-age=31536000, immutable
+/profile-avatar-2027.jpg
+  Cache-Control: public, max-age=2592000, immutable
+/og-image.jpg
+  Cache-Control: public, max-age=2592000, immutable
+/dist/*
+  Cache-Control: public, max-age=3600, must-revalidate
+/script.js
+  Cache-Control: public, max-age=3600, must-revalidate

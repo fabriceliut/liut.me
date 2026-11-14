@@ -7,15 +7,17 @@ Site vitrine statique, léger et prêt au déploiement sur Cloudflare Pages.
 - HTML statique avec classes Tailwind
 - Tailwind CSS v3 compilé (~24 KB minifié)
 - JavaScript vanilla (~2 KB)
-- Google Fonts (Inter, Plus Jakarta Sans, JetBrains Mono)
+- Fonts auto-hébergées (IBM Plex Sans, Plus Jakarta Sans, JetBrains Mono)
 - Aucun framework client
 
 ## Structure
 
 ```
-index.html          ← page principale (Home + Meeting views)
+index.html          ← page principale (Home)
+comment-ca-se-passe/ ← page dédiée au rendez-vous de 45 minutes
 script.js           ← navigation, menu mobile, scroll navbar
 dist/styles.css     ← CSS compilé (output Tailwind)
+_headers            ← cache et headers Cloudflare Pages
 src/input.css       ← CSS source (directives Tailwind + custom)
 tailwind.config.js  ← config Tailwind (fonts, safelist)
 logo-liut.webp          ← favicon / logo
@@ -43,7 +45,7 @@ Puis ouvrir http://localhost:4173.
 npm run build
 ```
 
-Génère `dist/styles.css` minifié.
+Génère `dist/styles.css` minifié et prépare `_site/` pour Cloudflare Pages.
 
 ## Déploiement Cloudflare Pages
 
@@ -63,3 +65,4 @@ Génère `dist/styles.css` minifié.
 ## À faire / noter
 
 - Les images de profil source sont conservées dans `sources/`
+- La QA utilise Playwright ; elle détecte automatiquement Chromium système si disponible, sinon installer un navigateur Playwright.

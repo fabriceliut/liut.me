@@ -10,15 +10,15 @@
   "theme_color": "#0B0C0E",
   "icons": [
     {
-      "src": "/logo-liut.webp",
+      "src": "/logo-liut-192.svg",
       "sizes": "192x192",
-      "type": "image/webp",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/logo-liut.webp",
+      "src": "/logo-liut-512.svg",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]
