@@ -242,7 +242,7 @@ document.querySelectorAll('details').forEach((d) => {
             link.setAttribute('onclick', "mobileNavClick(event, 'livres')");
             link.className = 'text-[#EEEEF0] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer';
         }
-        anchor.parentNode.insertBefore(link, anchor);
+        anchor.parentNode.insertBefore(link, anchor.nextSibling);
     };
     addLink(document.getElementById('nav-menu-home'));
     addLink(document.getElementById('mobile-menu'));
