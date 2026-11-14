@@ -36,14 +36,27 @@ function showView(viewName) {
 // 3. Menu Mobile Toggle
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    if (menu.classList.contains('hidden')) {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    if (!menu) return;
+    const opening = menu.classList.contains('hidden');
+    if (opening) {
         menu.classList.remove('hidden');
         menu.classList.add('flex');
         document.body.classList.add('overflow-hidden-body');
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-label', 'Fermer le menu');
+        }
+        menu.querySelector('a, button')?.focus();
     } else {
         menu.classList.add('hidden');
         menu.classList.remove('flex');
         document.body.classList.remove('overflow-hidden-body');
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Ouvrir le menu');
+            toggle.focus();
+        }
     }
 }
 
@@ -55,16 +68,15 @@ function mobileNavClick(event, sectionId) {
     toggleMobileMenu();
 
     const homeView = document.getElementById('view-home');
-    if (homeView.classList.contains('hidden-view')) {
+    if (homeView?.classList.contains('hidden-view')) {
         showView('home');
     }
 
-    setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-        }
-    }, 150);
+    const element = document.getElementById(sectionId);
+    if (element) {
+        window.history.pushState({}, '', `#${sectionId}`);
+        setTimeout(() => element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }), 150);
+    }
 }
 
 // 5. Effet de Scroll sur Navbar (throttlé via requestAnimationFrame)
