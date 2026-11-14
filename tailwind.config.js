@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './script.js'],
+  content: ['./index.html', './comment-ca-se-passe/**/*.html', './script.js'],
   safelist: [
     'bg-[#0B0C0E]/80',
     'backdrop-blur-md',

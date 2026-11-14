@@ -9,7 +9,10 @@ const FILES = [
   'sitemap.xml',
   'llms.txt',
   'manifest.webmanifest',
+  '_headers',
   'logo-liut.webp',
+  'logo-liut-192.svg',
+  'logo-liut-512.svg',
   'profile-avatar-2027.jpg',
   'og-image.jpg',
 ];
@@ -36,6 +39,7 @@ function copyDir(src, dest) {
   }
 }
 copyDir(path.join('assets', 'books'), path.join(OUT, 'assets', 'books'));
+copyDir('comment-ca-se-passe', path.join(OUT, 'comment-ca-se-passe'));
 
 // Copy compiled CSS
 fs.copyFileSync('dist/styles.css', path.join(OUT, 'dist', 'styles.css'));
