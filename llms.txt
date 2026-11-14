@@ -4,6 +4,7 @@
 
 ## Site
 - [Accueil](https://liut.me/): présentation de Fabrice Liut, de son approche et de ses résultats.
+- [Comment ça se passe](https://liut.me/comment-ca-se-passe/): déroulé des 45 minutes et du travail ensemble.
 - [Méthode](https://liut.me/#approche): accompagnement opérationnel, organisation, outils et mise en mouvement.
 - [Expérience](https://liut.me/#parcours): parcours de plus de 15 ans auprès d'entreprises et d'organisations.
 - [Offres](https://liut.me/#offres): liens vers les accompagnements pour entreprises, entrepreneurs et projets IA.
