@@ -242,7 +242,7 @@ document.querySelectorAll('details').forEach((d) => {
                     </article>
                     <article class="book-card book-card--playbook group">
                         <div class="book-card-media">
-                            <img src="assets/books/playbook.svg" alt="Visuel du Playbook : L'art de poser les questions qui transforment votre business" width="500" height="250" loading="lazy" decoding="async">
+                            <img src="assets/books/playbook.svg" alt="Couverture du livre L’art de poser les questions qui transforment votre business, par Fabrice Liut" width="500" height="746" loading="lazy" decoding="async">
                             <div class="book-card-index" aria-hidden="true">02 / 02</div>
                         </div>
                         <div class="book-card-body">

@@ -39,7 +39,7 @@
     <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Compiled Tailwind CSS (includes @font-face) -->
-    <link rel="stylesheet" href="/dist/styles.css">
+    <link rel="stylesheet" href="/dist/styles.css?v=20261114-menu-books">
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.webmanifest">
@@ -82,7 +82,10 @@
                 <span class="font-display font-bold text-lg tracking-tight text-[#EEEEF0]">Liut.</span>
             </a>
             <div class="flex items-center gap-3">
-                <a href="/" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full text-[13px] font-medium text-[#8A8F98] hover:text-[#EEEEF0] hover:bg-[#141518] border border-transparent hover:border-[#2E3138] transition-all">Accueil</a>
+                <a href="/" aria-label="Retour à la page principale" title="Retour à la page principale" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-[13px] font-medium text-[#8A8F98] hover:text-[#EEEEF0] hover:bg-[#141518] border border-transparent hover:border-[#2E3138] transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>
+                    <span class="hidden sm:inline">Retour</span>
+                </a>
                 <a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-medium transition-all border bg-[#7568FF] border-[#7568FF] text-white hover:bg-[#6457E5]">Prendre 45 min</a>
             </div>
         </div>
@@ -356,6 +359,6 @@
         </div>
     </main>
 
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20261114-menu-books" defer></script>
 </body>
 </html>
