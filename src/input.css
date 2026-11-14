@@ -159,7 +159,7 @@ img[src*="s2/favicons"] { aspect-ratio: 1 / 1; width: 16px; height: 16px; }
 }
 .book-card:hover { transform: translateY(-5px); border-color: color-mix(in oklch, var(--color-accent) 48%, var(--color-border)); box-shadow: 0 28px 75px rgba(0, 0, 0, .28); }
 .book-card-media {
-  position: relative; min-height: 260px; aspect-ratio: 16 / 9;
+  position: relative; min-width: 0; min-height: 260px; aspect-ratio: auto;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
   background: #111216; border-right: 1px solid var(--color-border);
 }
