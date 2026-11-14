@@ -18,10 +18,16 @@ const FILES = [
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'dist'), { recursive: true });
 fs.mkdirSync(path.join(OUT, 'fonts'), { recursive: true });
+fs.mkdirSync(path.join(OUT, 'assets', 'books'), { recursive: true });
 
 // Copy static files
 for (const f of FILES) {
   fs.copyFileSync(f, path.join(OUT, f));
+}
+
+// Copy book visuals
+for (const f of ['archipel.svg', 'playbook.svg']) {
+  fs.copyFileSync(path.join('assets', 'books', f), path.join(OUT, 'assets', 'books', f));
 }
 
 // Copy compiled CSS
@@ -33,4 +39,4 @@ for (const f of fontFiles) {
   fs.copyFileSync(path.join('fonts', f), path.join(OUT, 'fonts', f));
 }
 
-console.log(`Built _site/ with ${FILES.length + 1 + fontFiles.length} files`);
+console.log(`Built _site/ with ${FILES.length + 3 + fontFiles.length} files`);

@@ -148,6 +148,74 @@ document.querySelectorAll('details').forEach((d) => {
     });
 })();
 
+// 9. Livres : ressource éditoriale mise en avant
+(function () {
+    if (document.getElementById('livres')) return;
+    const ressources = document.getElementById('ressources');
+    if (!ressources) return;
+
+    const section = `
+        <section id="livres" class="books-section relative overflow-hidden border-t border-[#2E3138]" aria-labelledby="books-title">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(117,104,255,0.12),transparent_32%),radial-gradient(circle_at_85%_80%,rgba(117,104,255,0.06),transparent_28%)] pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 relative z-10">
+                <div class="books-intro max-w-3xl mb-12 md:mb-16">
+                    <div class="sec-eyebrow"><span>/// Livres</span><span class="num">04</span></div>
+                    <h2 id="books-title" class="text-3xl md:text-5xl font-display font-semibold tracking-tight text-[#EEEEF0] text-balance">Des idées à emporter. Des pratiques à essayer.</h2>
+                    <p class="mt-5 text-[#8A8F98] text-[16px] md:text-lg leading-relaxed max-w-2xl text-balance">Deux livres pour déplacer le regard, poser de meilleures questions et faire circuler l'action — sans perdre la singularité de celles et ceux qui la portent.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                    <article class="book-card book-card--archipel group">
+                        <div class="book-card-media">
+                            <img src="assets/books/archipel.svg" alt="Couverture du livre Le livre des archipels, par Fabrice Liut" width="500" height="746" loading="lazy" decoding="async">
+                            <div class="book-card-index" aria-hidden="true">01 / 02</div>
+                        </div>
+                        <div class="book-card-body">
+                            <div class="book-card-kicker">GUIDEBOOK · COOPÉRATION</div>
+                            <h3 class="book-card-title">Le livre des archipels</h3>
+                            <p class="book-card-hook">Comment agir ensemble sans demander à chacun de devenir semblable aux autres&nbsp;? Un guide concret pour relier des personnes et des organisations, puis choisir un prochain pas réaliste.</p>
+                            <div class="book-card-footer">
+                                <span class="book-card-meta">PDF · EPUB disponibles</span>
+                                <a href="https://app.notion.com/p/f728a3eb1aab4be6901775713018e7dc" target="_blank" rel="noopener noreferrer" class="book-card-cta" title="Ouvrir la page source où l'ebook est disponible">Télécharger l’ebook <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="book-card book-card--playbook group">
+                        <div class="book-card-media">
+                            <img src="assets/books/playbook.svg" alt="Visuel du Playbook : L'art de poser les questions qui transforment votre business" width="500" height="250" loading="lazy" decoding="async">
+                            <div class="book-card-index" aria-hidden="true">02 / 02</div>
+                        </div>
+                        <div class="book-card-body">
+                            <div class="book-card-kicker">PLAYBOOK · DÉCISION</div>
+                            <h3 class="book-card-title">L’art de poser les questions qui transforment votre business</h3>
+                            <p class="book-card-hook">Clarifier une vision, trouver le vrai problème, mieux décider&nbsp;: une pratique de questionnement stratégique, de la méthode socratique aux «&nbsp;5 Pourquoi&nbsp;».</p>
+                            <div class="book-card-footer">
+                                <span class="book-card-meta">Lecture libre sur Notion</span>
+                                <a href="https://app.notion.com/p/1bc1422a981281c2ab9cfb30e3585ffe" target="_blank" rel="noopener noreferrer" class="book-card-cta">Lire le playbook <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>`;
+    ressources.insertAdjacentHTML('beforebegin', section);
+
+    const addLink = (menu) => {
+        const anchor = menu && menu.querySelector('a[href="#ressources"]');
+        if (!anchor) return;
+        const link = anchor.cloneNode(true);
+        link.href = '#livres';
+        link.textContent = 'Livres';
+        link.classList.remove('nav-active');
+        if (menu.id === 'mobile-menu') {
+            link.setAttribute('onclick', "mobileNavClick(event, 'livres')");
+            link.className = 'text-[#EEEEF0] font-display font-medium text-xl py-2 border-b border-[#2E3138]/50 cursor-pointer';
+        }
+        anchor.parentNode.insertBefore(link, anchor);
+    };
+    addLink(document.getElementById('nav-menu-home'));
+    addLink(document.getElementById('mobile-menu'));
+})();
+
 // 9. Scrollspy nav : surligne la section active (index éditorial)
 (function () {
     const links = Array.from(document.querySelectorAll('#nav-menu-home a[href^="#"]'));
