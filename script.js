@@ -41,6 +41,7 @@ function toggleMobileMenu() {
     if (!menu) return;
     const opening = menu.classList.contains('hidden');
     if (opening) {
+        menu.hidden = false;
         menu.classList.remove('hidden');
         menu.classList.add('flex');
         document.body.dataset.menuOverflow = document.body.style.overflow || '';
@@ -55,6 +56,7 @@ function toggleMobileMenu() {
         }
         menu.querySelector('a, button')?.focus();
     } else {
+        menu.hidden = true;
         menu.classList.add('hidden');
         menu.classList.remove('flex');
         document.body.style.overflow = document.body.dataset.menuOverflow || '';
