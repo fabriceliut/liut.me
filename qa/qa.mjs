@@ -44,6 +44,7 @@ await page.getByRole('link', { name: 'Offres' }).last().click();
 await page.waitForTimeout(250);
 ok('Ancre mobile synchronisée', await page.evaluate(() => location.hash === '#offres'));
 ok('Menu mobile refermé', await menuToggle.getAttribute('aria-expanded') === 'false' && await page.locator('#mobile-menu.hidden').count() === 1);
+ok('Couverture playbook portrait', await page.locator('.book-card--playbook img[width="500"][height="746"]').count() === 1);
 await page.setViewportSize({ width: 1280, height: 900 });
 
 const meeting = await page.goto(BASE + '/comment-ca-se-passe/', { waitUntil: 'networkidle' });
@@ -55,6 +56,7 @@ const firstDetails = page.locator('details').first();
 const summary = firstDetails.locator('summary');
 if (await summary.count()) { await summary.click(); await page.waitForTimeout(100); }
 ok('Accordéon accessible', await summary.getAttribute('aria-expanded') === 'true');
+ok('Bouton retour présent', await page.locator('a[aria-label="Retour à la page principale"]').count() === 1);
 await page.screenshot({ path: `${OUT}/meeting-1280.png`, fullPage: true });
 
 const origin = new URL(BASE).origin;
