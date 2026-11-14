@@ -25,10 +25,17 @@ for (const f of FILES) {
   fs.copyFileSync(f, path.join(OUT, f));
 }
 
-// Copy book visuals
-for (const f of ['archipel.svg', 'playbook.svg']) {
-  fs.copyFileSync(path.join('assets', 'books', f), path.join(OUT, 'assets', 'books', f));
+// Copy book visuals and download assets
+function copyDir(src, dest) {
+  fs.mkdirSync(dest, { recursive: true });
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    const from = path.join(src, entry.name);
+    const to = path.join(dest, entry.name);
+    if (entry.isDirectory()) copyDir(from, to);
+    else fs.copyFileSync(from, to);
+  }
 }
+copyDir(path.join('assets', 'books'), path.join(OUT, 'assets', 'books'));
 
 // Copy compiled CSS
 fs.copyFileSync('dist/styles.css', path.join(OUT, 'dist', 'styles.css'));
@@ -39,4 +46,4 @@ for (const f of fontFiles) {
   fs.copyFileSync(path.join('fonts', f), path.join(OUT, 'fonts', f));
 }
 
-console.log(`Built _site/ with ${FILES.length + 3 + fontFiles.length} files`);
+console.log(`Built _site/ with ${FILES.length + 1 + fontFiles.length} files`);
