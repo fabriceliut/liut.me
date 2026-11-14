@@ -148,6 +148,38 @@ document.querySelectorAll('details').forEach((d) => {
     });
 })();
 
+// 9. Offres : parcours clair, de l'entrée à l'accélération
+(function () {
+    const section = document.getElementById('offres');
+    const grid = section && section.querySelector('.grid');
+    if (!section || !grid) return;
+    const title = section.querySelector('h2');
+    const intro = section.querySelector('h2 + p');
+    if (title) title.textContent = 'Des offres pour chaque moment du parcours';
+    if (intro) intro.textContent = 'Commencer par faire place nette, puis voir, structurer, piloter ou accélérer — dans l’ordre qui correspond à votre situation.';
+    const offers = [
+        ['01', 'OFFRE D’ENTRÉE', 'Faire place nette', 'Trouver ce qui freine le plus le travail et mettre un premier changement en pratique avec vos équipes.', 'https://offres.liut.me/place-nette'],
+        ['02', 'VOIR', 'Diagnostic Flux & Leviers', 'Cartographier les flux, chiffrer les leviers et décider quoi structurer en premier.', 'https://offres.liut.me/diagnostic'],
+        ['03', 'STRUCTURER', 'Programme Entreprises', 'Rendre l’organisation lisible, aligner les rôles et faire tenir les flux dans la durée.', 'https://offres.liut.me/entreprises'],
+        ['04', 'PILOTER', 'Cockpit Dirigeant', 'Récupérer de la hauteur, une vue d’ensemble et du temps pour décider plutôt que rattraper.', 'https://offres.liut.me/entrepreneurs'],
+        ['05', 'ACCÉLÉRER', 'Intégration IA', 'Intégrer l’IA dans vos flux existants pour gagner du temps sans ajouter de complexité.', 'https://offres.liut.me/ia'],
+    ];
+    grid.className = 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5';
+    grid.innerHTML = offers.map(([index, kicker, name, description, href], i) => `
+        <a href="${href}" target="_blank" rel="noopener noreferrer" class="group relative bg-[#141518]/80 backdrop-blur-md border ${i === 0 ? 'border-[#7568FF]/70' : 'border-[#2E3138]'} rounded-2xl p-6 transition-all duration-300 hover:border-[#7568FF]/60 hover:-translate-y-1 flex flex-col">
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#7568FF]/[0.06] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col h-full">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="font-mono text-[11px] text-[#7568FF] tracking-[.12em]">${index}</span>
+                    <span class="text-[#2E3138] group-hover:text-[#7568FF] transition-colors text-lg" aria-hidden="true">↗</span>
+                </div>
+                <div class="font-mono text-[10px] tracking-[.1em] text-[#8A8F98] mb-3">${kicker}</div>
+                <h3 class="text-[#EEEEF0] font-display font-bold text-lg leading-tight mb-3">${name}</h3>
+                <p class="text-[14px] text-[#8A8F98] leading-relaxed text-balance mt-auto">${description}</p>
+            </div>
+        </a>`).join('');
+})();
+
 // 9. Livres : ressource éditoriale mise en avant
 (function () {
     if (document.getElementById('livres')) return;
@@ -159,7 +191,7 @@ document.querySelectorAll('details').forEach((d) => {
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(117,104,255,0.12),transparent_32%),radial-gradient(circle_at_85%_80%,rgba(117,104,255,0.06),transparent_28%)] pointer-events-none" aria-hidden="true"></div>
             <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 relative z-10">
                 <div class="books-intro max-w-3xl mb-12 md:mb-16">
-                    <div class="sec-eyebrow"><span>/// Livres</span><span class="num">04</span></div>
+                    <div class="sec-eyebrow"><span>/// Livres</span><span class="num">05</span></div>
                     <h2 id="books-title" class="text-3xl md:text-5xl font-display font-semibold tracking-tight text-[#EEEEF0] text-balance">Des idées à emporter. Des pratiques à essayer.</h2>
                     <p class="mt-5 text-[#8A8F98] text-[16px] md:text-lg leading-relaxed max-w-2xl text-balance">Deux livres pour déplacer le regard, poser de meilleures questions et faire circuler l'action — sans perdre la singularité de celles et ceux qui la portent.</p>
                 </div>
@@ -175,7 +207,7 @@ document.querySelectorAll('details').forEach((d) => {
                             <p class="book-card-hook">Comment agir ensemble sans demander à chacun de devenir semblable aux autres&nbsp;? Un guide concret pour relier des personnes et des organisations, puis choisir un prochain pas réaliste.</p>
                             <div class="book-card-footer">
                                 <span class="book-card-meta">PDF · EPUB disponibles</span>
-                                <a href="https://app.notion.com/p/f728a3eb1aab4be6901775713018e7dc" target="_blank" rel="noopener noreferrer" class="book-card-cta" title="Ouvrir la page source où l'ebook est disponible">Télécharger l’ebook <span aria-hidden="true">↗</span></a>
+                                <a href="https://app.notion.com/p/f728a3eb1aab4be6901775713018e7dc" target="_blank" rel="noopener noreferrer" class="book-card-cta js-ebook-download" data-ebook-manifest="assets/books/archipel-ebook/manifest.json" title="Télécharger l’ebook au format EPUB">Télécharger l’ebook <span aria-hidden="true">↓</span></a>
                             </div>
                         </div>
                     </article>
@@ -197,7 +229,7 @@ document.querySelectorAll('details').forEach((d) => {
                 </div>
             </div>
         </section>`;
-    ressources.insertAdjacentHTML('beforebegin', section);
+    ressources.insertAdjacentHTML('afterend', section);
 
     const addLink = (menu) => {
         const anchor = menu && menu.querySelector('a[href="#ressources"]');
@@ -214,6 +246,47 @@ document.querySelectorAll('details').forEach((d) => {
     };
     addLink(document.getElementById('nav-menu-home'));
     addLink(document.getElementById('mobile-menu'));
+})();
+
+// 11. Ebook EPUB : téléchargement local, avec la page source en repli
+(function () {
+    const links = document.querySelectorAll('.js-ebook-download');
+    if (!links.length) return;
+    links.forEach((link) => link.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const fallback = link.href;
+        const original = link.innerHTML;
+        link.setAttribute('aria-busy', 'true');
+        link.innerHTML = 'Préparation…';
+        try {
+            const manifestUrl = new URL(link.dataset.ebookManifest, document.baseURI);
+            const manifest = await fetch(manifestUrl).then((response) => {
+                if (!response.ok) throw new Error('manifest');
+                return response.json();
+            });
+            const chunks = await Promise.all(Array.from({ length: manifest.chunks }, (_, index) =>
+                fetch(new URL(`${manifest.prefix}${String(index).padStart(2, '0')}.txt`, manifestUrl)).then((response) => {
+                    if (!response.ok) throw new Error('chunk');
+                    return response.text();
+                })
+            ));
+            const encoded = chunks.join('');
+            const binary = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
+            const blobUrl = URL.createObjectURL(new Blob([binary], { type: manifest.type }));
+            const download = document.createElement('a');
+            download.href = blobUrl;
+            download.download = manifest.filename;
+            document.body.appendChild(download);
+            download.click();
+            download.remove();
+            URL.revokeObjectURL(blobUrl);
+            link.innerHTML = 'Ebook téléchargé <span aria-hidden="true">✓</span>';
+        } catch (error) {
+            link.removeAttribute('aria-busy');
+            link.innerHTML = original;
+            window.open(fallback, '_blank', 'noopener,noreferrer');
+        }
+    }));
 })();
 
 // 9. Scrollspy nav : surligne la section active (index éditorial)
