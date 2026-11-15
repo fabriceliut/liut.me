@@ -33,19 +33,36 @@ function showView(viewName) {
     }
 }
 
+// Retour à l'accueil : utilise l'historique quand on vient réellement de l'accueil.
+// Le navigateur peut alors restaurer la page depuis le BFCache, sans nouveau chargement.
+function returnToHome(event) {
+    const referrer = document.referrer;
+    let cameFromHome = false;
+    try {
+        const referrerUrl = new URL(referrer);
+        cameFromHome = referrerUrl.origin === window.location.origin
+            && (referrerUrl.pathname === '/' || referrerUrl.pathname === '/index.html');
+    } catch (_) {
+        cameFromHome = false;
+    }
+    if (cameFromHome && window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+    }
+}
+
 // 3. Menu Mobile Toggle
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const toggle = document.getElementById('mobile-menu-toggle');
     const menuIcon = document.getElementById('menu-icon-svg');
     if (!menu) return;
-    const opening = menu.classList.contains('hidden');
+    const opening = menu.hidden;
     if (opening) {
         menu.hidden = false;
-        menu.classList.remove('hidden');
-        menu.classList.add('flex');
         document.body.dataset.menuOverflow = document.body.style.overflow || '';
         document.body.style.overflow = 'hidden';
+        document.body.classList.add('menu-open');
         menu.setAttribute('aria-hidden', 'false');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'true');
@@ -57,10 +74,9 @@ function toggleMobileMenu() {
         menu.querySelector('a, button')?.focus();
     } else {
         menu.hidden = true;
-        menu.classList.add('hidden');
-        menu.classList.remove('flex');
         document.body.style.overflow = document.body.dataset.menuOverflow || '';
         delete document.body.dataset.menuOverflow;
+        document.body.classList.remove('menu-open');
         menu.setAttribute('aria-hidden', 'true');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'false');
@@ -94,7 +110,9 @@ function mobileNavClick(event, sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
         window.history.pushState({}, '', `#${sectionId}`);
-        setTimeout(() => element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }), 150);
+        requestAnimationFrame(() => {
+            element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        });
     }
 }
 
