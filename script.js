@@ -48,7 +48,9 @@ function returnToHome(event) {
     if (cameFromHome && window.history.length > 1) {
         event.preventDefault();
         window.history.back();
+        return false;
     }
+    return true;
 }
 
 // 3. Menu Mobile Toggle
