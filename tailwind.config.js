@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './comment-ca-se-passe/**/*.html', './script.js'],
+  content: ['./index.html', './404.html', './comment-ca-se-passe/**/*.html', './script.js'],
   safelist: [
     'bg-night/95',
     'border-edge',
