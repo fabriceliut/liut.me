@@ -170,23 +170,25 @@ document.querySelectorAll('details').forEach((d) => {
     d.addEventListener('toggle', () => s.setAttribute('aria-expanded', d.open ? 'true' : 'false'));
 });
 
-// 8. Logos clients : monogramme de secours si une image ne charge pas
+// 8. Logos clients : garantit l'affichage (monogramme de secours si favicon KO)
 (function () {
-    const logos = document.querySelectorAll('img[data-logo]');
+    const logos = document.querySelectorAll('img[src*="s2/favicons"]');
     if (!logos.length) return;
     const toFallback = (img) => {
         if (img.dataset.fb === '1') return;
         img.dataset.fb = '1';
         const pill = img.closest('span');
         const label = pill ? (pill.textContent || '').trim() : '';
+        const letter = label ? label[0].toUpperCase() : '•';
         const mono = document.createElement('span');
         mono.className = 'logo-fallback';
-        mono.textContent = label ? label[0].toUpperCase() : '•';
+        mono.textContent = letter;
         mono.setAttribute('aria-hidden', 'true');
         img.replaceWith(mono);
     };
     logos.forEach((img) => {
         img.addEventListener('error', () => toFallback(img), { once: true });
+        // Image déjà en échec avant l'attache du handler (script deferred)
         if (img.complete && img.naturalWidth === 0) toFallback(img);
     });
 })();
