@@ -3,24 +3,31 @@
 > Fabrice Liut est un allié opérationnel et stratégique de dirigeants et d'entrepreneurs. Basé à Lyon, il aide les équipes à clarifier leurs priorités, structurer leur organisation et mettre en place des outils numériques et d'intelligence artificielle adaptés au terrain. Il intervient en France.
 
 ## Site
+
 - [Accueil](https://liut.me/): présentation de Fabrice Liut, de son approche et de ses résultats.
 - [Comment ça se passe](https://liut.me/comment-ca-se-passe/): déroulé des 45 minutes et du travail ensemble.
 - [Méthode](https://liut.me/#approche): accompagnement opérationnel, organisation, outils et mise en mouvement.
 - [Expérience](https://liut.me/#parcours): parcours de plus de 15 ans auprès d'entreprises et d'organisations.
-- [Offres](https://liut.me/#offres): liens vers les accompagnements pour entreprises, entrepreneurs et projets IA.
+- [Offres](https://liut.me/#offres): cinq accompagnements, de « Faire place nette » à l'intégration de l'IA.
 - [Ressources](https://liut.me/#ressources): newsletter, espace Notion, réflexions et vidéos.
+- [Livres](https://liut.me/#livres): « Le livre des archipels » (ebook) et le playbook « L'art de poser les questions qui transforment votre business ».
 
 ## Résultats présentés
+
 - Une équipe a récupéré 3 185 heures par an après simplification de ses réunions et de sa communication.
 - Pour BDR Therma, une intervention d'installation de pompe à chaleur est passée de 48 heures à 20 minutes grâce à une application cadrée en cinq jours.
 - Dans une PME IT, les résultats présentés incluent +12 % de temps facturable, −12 % de délais, +18 % de qualité et −3 points de turnover.
 
 ## Accompagnements
+
+- [Faire place nette](https://offres.liut.me/place-nette): trouver ce qui freine le plus le travail et mettre un premier changement en pratique.
+- [Diagnostic Flux & Leviers](https://offres.liut.me/diagnostic): cartographier les flux, chiffrer les leviers, décider quoi structurer en premier.
 - [Entreprises](https://offres.liut.me/entreprises): donner à la croissance une organisation qui la porte.
 - [Entrepreneurs](https://offres.liut.me/entrepreneurs): avancer vite, bien entouré, avec de l'air pour décider.
 - [Intelligence artificielle](https://offres.liut.me/ia): mettre l'IA au travail là où elle rend du temps.
 
 ## Ressources et profils
+
 - [Newsletter](https://liut.substack.com/)
 - [Espace Notion](https://liutnotes.notion.site/fabrice-liut-1a41422a981280638ab0fd9ca9fcdb89)
 - [Jardin de réflexions](https://jardin.liut.me/)
@@ -28,4 +35,5 @@
 - [LinkedIn](https://www.linkedin.com/in/liut)
 
 ## Contact
+
 - [Réserver un rendez-vous de 45 minutes](https://cal.com/fabrice-liut/45-min-meeting)
