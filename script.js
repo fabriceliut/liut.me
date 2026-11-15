@@ -59,6 +59,18 @@ function returnToHome(event) {
     return true;
 }
 
+// Retour en haut de l'accueil : pas de rechargement, juste un scroll maîtrisé.
+function scrollToTop(event) {
+    const homeView = document.getElementById('view-home');
+    if (!homeView || homeView.classList.contains('hidden-view')) return;
+    event.preventDefault();
+    window.history.replaceState({}, '', window.location.pathname + window.location.search);
+    window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+}
+
 // 3. Menu Mobile Toggle
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
@@ -68,6 +80,7 @@ function toggleMobileMenu() {
     const opening = menu.hidden;
     if (opening) {
         menu.hidden = false;
+        document.documentElement.classList.add('menu-open');
         menu.setAttribute('aria-hidden', 'false');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'true');
@@ -87,11 +100,17 @@ function toggleMobileMenu() {
         if (menuIcon) {
             menuIcon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
         }
+        requestAnimationFrame(() => {
+            if (menu.hidden) {
+                document.documentElement.classList.remove('menu-open');
+                toggle?.focus({ preventScroll: true });
+            }
+        });
     }
 }
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !document.getElementById('mobile-menu')?.classList.contains('hidden')) {
+    if (event.key === 'Escape' && !document.getElementById('mobile-menu')?.hidden) {
         toggleMobileMenu();
     }
 });

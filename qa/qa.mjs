@@ -39,11 +39,11 @@ ok('Panneau mobile scrollable', await page.locator('#mobile-menu').evaluate((el)
   el.scrollTop = 120;
   return el.classList.contains('overflow-y-auto') && el.scrollTop > 0;
 }));
-ok('Scroll de la page verrouillé', await page.evaluate(() => document.body.style.overflow === 'hidden'));
+ok('Scroll arrière-plan verrouillé', await page.evaluate(() => document.documentElement.classList.contains('menu-open') && getComputedStyle(document.documentElement).overflow === 'hidden'));
 await page.getByRole('link', { name: 'Offres' }).last().click();
 await page.waitForTimeout(250);
 ok('Ancre mobile synchronisée', await page.evaluate(() => location.hash === '#offres'));
-ok('Menu mobile refermé', await menuToggle.getAttribute('aria-expanded') === 'false' && await page.locator('#mobile-menu').evaluate((el) => el.hidden && getComputedStyle(el).display === 'none'));
+ok('Menu mobile refermé', await menuToggle.getAttribute('aria-expanded') === 'false' && await page.locator('#mobile-menu').evaluate((el) => el.hidden && getComputedStyle(el).display === 'none' && !document.documentElement.classList.contains('menu-open')));
 ok('Couverture playbook portrait', await page.locator('.book-card--playbook img[width="500"][height="746"]').count() === 1);
 await page.setViewportSize({ width: 1280, height: 900 });
 
