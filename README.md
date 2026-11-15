@@ -6,31 +6,32 @@ Site vitrine statique, léger et prêt au déploiement sur Cloudflare Pages.
 
 - HTML statique avec classes Tailwind
 - Tailwind CSS v3 compilé (~24 KB minifié)
-- JavaScript vanilla (~2 KB)
+- JavaScript vanilla (~8 KB)
 - Fonts auto-hébergées (IBM Plex Sans, Plus Jakarta Sans, JetBrains Mono)
 - Aucun framework client
 
 ## Structure
 
 ```
-index.html          ← page principale (Home)
-comment-ca-se-passe/ ← page dédiée au rendez-vous de 45 minutes
-script.js           ← navigation, menu mobile, scroll navbar
-dist/styles.css     ← CSS compilé (output Tailwind)
-_headers            ← cache et headers Cloudflare Pages
-src/input.css       ← CSS source (directives Tailwind + custom)
-tailwind.config.js  ← config Tailwind (fonts, safelist)
+index.html              ← page principale (Home)
+comment-ca-se-passe/    ← page dédiée au rendez-vous de 45 minutes
+script.js               ← menu mobile, navbar au scroll, compteurs, ebook, scrollspy
+dist/styles.css         ← CSS compilé (output Tailwind)
+_headers                ← cache et headers Cloudflare Pages
+src/input.css           ← CSS source (directives Tailwind + custom)
+tailwind.config.js      ← config Tailwind (fonts, safelist)
+assets/books/           ← couvertures des livres + ebook
 logo-liut.webp          ← favicon / logo
 profile-avatar-2027.jpg ← photo de profil
 og-image.jpg            ← image de partage Open Graph (1200 × 630)
-robots.txt          ← règles SEO
-sitemap.xml         ← sitemap
-sources/            ← fichier source de référence
+robots.txt              ← règles SEO
+sitemap.xml             ← sitemap
+sources/                ← fichiers source de référence
 ```
 
 ## Dev local
 
-```bash
+```
 npm install
 npm run dev          # watch mode : recompile le CSS à chaque modif
 # Dans un autre terminal :
@@ -41,19 +42,21 @@ Puis ouvrir http://localhost:4173.
 
 ## Build production
 
-```bash
+```
 npm run build
 ```
 
 Génère `dist/styles.css` minifié et prépare `_site/` pour Cloudflare Pages.
 
+> Le CSS est mis en cache 1 an (`immutable`) : changer le paramètre `?v=` de `styles.css` (et de `script.js`) dans les deux pages HTML à chaque modification.
+
 ## Déploiement Cloudflare Pages
 
-| Paramètre             | Valeur       |
-|------------------------|-------------|
-| Framework preset       | `None`       |
-| Build command           | `npm run build` |
-| Build output directory | `/`          |
+| Paramètre | Valeur |
+| --- | --- |
+| Framework preset | `None` |
+| Build command | `npm run build` |
+| Build output directory | `_site` |
 
 ### Étapes
 
