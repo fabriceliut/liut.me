@@ -106,6 +106,14 @@ function mobileNavClick(event, sectionId) {
     }
 }
 
+// Branchements (remplace les onclick inline du HTML)
+document.getElementById('mobile-menu-toggle')?.addEventListener('click', toggleMobileMenu);
+document.querySelectorAll('#mobile-menu a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => mobileNavClick(event, link.getAttribute('href').slice(1)));
+});
+document.querySelectorAll('[data-scroll-top]').forEach((link) => link.addEventListener('click', scrollToTop));
+document.querySelectorAll('[data-return-home]').forEach((link) => link.addEventListener('click', returnToHome));
+
 // 5. Effet de Scroll sur Navbar (throttlé via requestAnimationFrame)
 (function () {
     const nav = document.getElementById('navbar');
@@ -113,10 +121,10 @@ function mobileNavClick(event, sectionId) {
     const update = () => {
         if (window.scrollY > 20) {
             // Fond opaque : évite un backdrop-filter coûteux, navbar lisible.
-            nav.classList.add('bg-[#0B0C0E]/95', 'border-[#2E3138]', 'py-3');
+            nav.classList.add('bg-night/95', 'border-edge', 'py-3');
             nav.classList.remove('py-6', 'border-transparent');
         } else {
-            nav.classList.remove('bg-[#0B0C0E]/95', 'border-[#2E3138]', 'py-3');
+            nav.classList.remove('bg-night/95', 'border-edge', 'py-3');
             nav.classList.add('py-6', 'border-transparent');
         }
     };
