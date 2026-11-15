@@ -36,7 +36,7 @@
 <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Compiled Tailwind CSS (includes @font-face) -->
-<link rel="stylesheet" href="/dist/styles.css?v=20261115">
+<link rel="stylesheet" href="/dist/styles.css?v=20261115-v2">
 <!-- Web App Manifest -->
 <link rel="manifest" href="/manifest.webmanifest">
 <!-- Structured Data -->
@@ -65,7 +65,7 @@
 }
 </script>
 </head>
-<body class="bg-[#0B0C0E] text-[#EEEEF0] antialiased">
+<body class="bg-night text-ink antialiased">
 <a href="#meeting-content" class="skip-link">Aller au contenu</a>
 <div class="grain-overlay" aria-hidden="true"></div>
 <nav id="navbar" class="fixed top-0 w-full z-40 transition-colors duration-150 py-6 border-b border-transparent" aria-label="Navigation principale">
@@ -74,30 +74,30 @@
 <span class="w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(117,104,255,0.3)] overflow-hidden">
 <img src="/logo-liut.webp" alt="Liut" width="36" height="36" class="w-full h-full object-cover" fetchpriority="high">
 </span>
-<span class="font-display font-bold text-lg tracking-tight text-[#EEEEF0]">Liut.</span>
+<span class="font-display font-bold text-lg tracking-tight text-ink">Liut.</span>
 </a>
 <div class="flex items-center gap-3">
-<a href="/" onclick="returnToHome(event)" aria-label="Retour à la page principale" title="Retour à la page principale" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-[13px] font-medium text-[#8A8F98] hover:text-[#EEEEF0] hover:bg-[#141518] border border-transparent hover:border-[#2E3138] transition-colors duration-150">
+<a href="/" data-return-home aria-label="Retour à la page principale" title="Retour à la page principale" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-[13px] font-medium text-muted hover:text-ink hover:bg-surface border border-transparent hover:border-edge transition-colors duration-150">
 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>
 <span class="hidden sm:inline">Retour</span>
 </a>
-<a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-medium transition-all border bg-[#7568FF] border-[#7568FF] text-white hover:bg-[#6457E5]">Prendre 45 min</a>
+<a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-medium btn-primary">Prendre 45 min</a>
 </div>
 </div>
 </nav>
 <!-- ========================================== -->
 <!-- VIEW: MEETING -->
 <!-- ========================================== -->
-<main id="meeting-content" aria-labelledby="meeting-title" class="flex-col min-h-screen bg-[#0B0C0E] pb-20">
-<div class="pt-32 pb-20 px-6 text-center border-b border-[#2E3138] bg-[#0B0C0E]">
-<h1 id="meeting-title" class="text-4xl md:text-6xl font-display font-bold text-[#EEEEF0] mb-8 text-balance">
-Comment ça se passe <span class="text-[#7568FF]">ensemble</span>&nbsp;?
+<main id="meeting-content" aria-labelledby="meeting-title" class="flex-col min-h-screen bg-night pb-20">
+<div class="pt-32 pb-20 px-6 text-center border-b border-edge bg-night">
+<h1 id="meeting-title" class="text-4xl md:text-6xl font-display font-bold text-ink mb-8 text-balance">
+Comment ça se passe <span class="text-accent">ensemble</span>&nbsp;?
 </h1>
-<p class="text-[#8A8F98] max-w-2xl mx-auto text-lg leading-relaxed text-balance">
-Cette page a un seul but&nbsp;: te montrer comment on travaille, et te donner quelques repères pour te projeter.
+<p class="text-muted max-w-2xl mx-auto text-lg leading-relaxed text-balance">
+Cette page a un seul but&nbsp;: vous montrer comment on travaille, et vous donner quelques repères pour vous projeter.
 </p>
 <div class="mt-10">
-<a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[16px] font-medium transition-all duration-300 border transform active:scale-95 cursor-pointer bg-[#7568FF] border-[#7568FF] text-white hover:bg-[#6457E5] shadow-lg group">
+<a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[16px] font-medium btn-primary shadow-lg group">
 Prendre 45 min
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80 group-hover:opacity-100 transition-transform group-hover:translate-x-0.5 ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 </a>
@@ -107,49 +107,49 @@ Prendre 45 min
 <!-- 45 Minutes -->
 <div class="mb-24">
 <div class="flex items-center gap-4 mb-8">
-<div class="p-3 bg-[#7568FF]/10 rounded-2xl text-[#7568FF]">
+<div class="p-3 bg-accent/10 rounded-2xl text-accent">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
 </div>
-<h2 class="text-3xl font-display font-bold text-[#EEEEF0]">Les 45 minutes</h2>
+<h2 class="text-3xl font-display font-bold text-ink">Les 45 minutes</h2>
 </div>
-<div class="bg-[#141518] border border-[#2E3138] rounded-[2rem] p-8 mb-10">
-<p class="text-[#7568FF] font-medium text-[16px] leading-relaxed text-balance">L'objectif n'est pas de « vendre ». <br/> L'objectif, c'est de voir ensemble ce qu'on pourrait construire — et si on a envie d'avancer ensemble.</p>
+<div class="bg-surface border border-edge rounded-[2rem] p-8 mb-10">
+<p class="text-accent font-medium text-[16px] leading-relaxed text-balance">L'objectif n'est pas de « vendre ». <br/> L'objectif, c'est de voir ensemble ce qu'on pourrait construire — et si on a envie d'avancer ensemble.</p>
 </div>
-<div class="space-y-10 pl-6 border-l border-[#2E3138] ml-2">
+<div class="space-y-10 pl-6 border-l border-edge ml-2">
 <div class="flex gap-6 relative">
-<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-[#0B0C0E] border-2 border-[#7568FF]"></div>
-<span class="font-mono text-[#7568FF] text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">01</span>
-<p class="text-[#EEEEF0] text-lg leading-relaxed text-balance">Tu poses le contexte (10 min).</p>
-</div>
-<div class="flex gap-6 relative">
-<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-[#0B0C0E] border-2 border-[#7568FF]"></div>
-<span class="font-mono text-[#7568FF] text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">02</span>
-<p class="text-[#EEEEF0] text-lg leading-relaxed text-balance">On repère le levier qui changerait le plus de choses (15 min).</p>
+<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-night border-2 border-accent"></div>
+<span class="font-mono text-accent text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">01</span>
+<p class="text-ink text-lg leading-relaxed text-balance">Vous posez le contexte (10 min).</p>
 </div>
 <div class="flex gap-6 relative">
-<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-[#0B0C0E] border-2 border-[#7568FF]"></div>
-<span class="font-mono text-[#7568FF] text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">03</span>
-<p class="text-[#EEEEF0] text-lg leading-relaxed text-balance">On précise l'objectif&nbsp;: ce que ça t'apporterait concrètement (10 min).</p>
+<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-night border-2 border-accent"></div>
+<span class="font-mono text-accent text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">02</span>
+<p class="text-ink text-lg leading-relaxed text-balance">On repère le levier qui changerait le plus de choses (15 min).</p>
 </div>
 <div class="flex gap-6 relative">
-<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-[#0B0C0E] border-2 border-[#7568FF]"></div>
-<span class="font-mono text-[#7568FF] text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">04</span>
-<p class="text-[#EEEEF0] text-lg leading-relaxed text-balance">Je te dis ce que je ferais à ta place, et si je peux t'accompagner (10 min).</p>
+<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-night border-2 border-accent"></div>
+<span class="font-mono text-accent text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">03</span>
+<p class="text-ink text-lg leading-relaxed text-balance">On précise l'objectif&nbsp;: ce que ça vous apporterait concrètement (10 min).</p>
+</div>
+<div class="flex gap-6 relative">
+<div class="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-night border-2 border-accent"></div>
+<span class="font-mono text-accent text-sm font-bold mt-1 shrink-0 w-6 min-w-[24px]">04</span>
+<p class="text-ink text-lg leading-relaxed text-balance">Je vous dis ce que je ferais à votre place, et si je peux vous accompagner (10 min).</p>
 </div>
 </div>
-<div class="mt-14 bg-[#141518] p-8 rounded-[2rem] border border-[#2E3138]">
-<h3 class="font-display font-bold text-[#EEEEF0] mb-6 text-xl">Tu repars avec&nbsp;:</h3>
-<ul class="space-y-4 text-[16px] text-[#8A8F98]">
+<div class="mt-14 bg-surface p-8 rounded-[2rem] border border-edge">
+<h3 class="font-display font-bold text-ink mb-6 text-xl">Vous repartez avec&nbsp;:</h3>
+<ul class="space-y-4 text-[16px] text-muted">
 <li class="flex gap-4 items-center">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
 Une direction plus claire.
 </li>
 <li class="flex gap-4 items-center">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
 Une première étape concrète.
 </li>
 <li class="flex gap-4 items-center">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
 Et, si on continue, une idée du rythme.
 </li>
 </ul>
@@ -157,42 +157,42 @@ Et, si on continue, une idée du rythme.
 </div>
 <!-- Si on continue -->
 <div class="mb-24">
-<h2 class="text-3xl font-display font-bold text-[#EEEEF0] mb-6">Si on continue&nbsp;: à quoi ressemble le travail</h2>
-<p class="text-[#8A8F98] mb-10 text-lg">Je ne fais pas de "grand plan". Je préfère un système simple, et du mouvement.</p>
+<h2 class="text-3xl font-display font-bold text-ink mb-6">Si on continue&nbsp;: à quoi ressemble le travail</h2>
+<p class="text-muted mb-10 text-lg">Je ne fais pas de "grand plan". Je préfère un système simple, et du mouvement.</p>
 <div class="grid md:grid-cols-2 gap-8">
-<div class="bg-[#141518] border border-[#2E3138] rounded-[2rem] p-8">
-<span class="text-[11px] font-mono text-[#7568FF] uppercase tracking-wider block mb-4">Semaine 1</span>
-<h3 class="text-xl font-display font-bold text-[#EEEEF0] mb-4">Cadrage</h3>
-<ul class="text-[15px] text-[#8A8F98] space-y-3 list-disc list-inside">
+<div class="bg-surface border border-edge rounded-[2rem] p-8">
+<span class="text-[11px] font-mono text-accent uppercase tracking-wider block mb-4">Semaine 1</span>
+<h3 class="text-xl font-display font-bold text-ink mb-4">Cadrage</h3>
+<ul class="text-[15px] text-muted space-y-3 list-disc list-inside">
 <li>On fait le tri.</li>
 <li>On choisit la priorité qui compte.</li>
 <li>On libère de la place pour elle.</li>
 <li>On met un suivi très simple.</li>
 </ul>
 </div>
-<div class="bg-[#141518] border border-[#2E3138] rounded-[2rem] p-8">
-<span class="text-[11px] font-mono text-[#7568FF] uppercase tracking-wider block mb-4">Semaines 2 à 6</span>
-<h3 class="text-xl font-display font-bold text-[#EEEEF0] mb-4">Rythme</h3>
-<p class="text-[15px] text-[#8A8F98] mb-3">Deux modes de fonctionnement&nbsp;:</p>
-<ul class="text-[15px] text-[#8A8F98] space-y-3">
-<li><strong class="text-[#EEEEF0]">Bras droit&nbsp;:</strong> on se voit chaque semaine, on avance ensemble.</li>
-<li><strong class="text-[#EEEEF0]">Ponctuel&nbsp;:</strong> on accélère un sujet précis, puis tu reprends la main.</li>
+<div class="bg-surface border border-edge rounded-[2rem] p-8">
+<span class="text-[11px] font-mono text-accent uppercase tracking-wider block mb-4">Semaines 2 à 6</span>
+<h3 class="text-xl font-display font-bold text-ink mb-4">Rythme</h3>
+<p class="text-[15px] text-muted mb-3">Deux modes de fonctionnement&nbsp;:</p>
+<ul class="text-[15px] text-muted space-y-3">
+<li><strong class="text-ink">Bras droit&nbsp;:</strong> on se voit chaque semaine, on avance ensemble.</li>
+<li><strong class="text-ink">Ponctuel&nbsp;:</strong> on accélère un sujet précis, puis vous reprenez la main.</li>
 </ul>
 </div>
 </div>
-<div class="mt-8 bg-[#0E0F11] border border-[#2E3138] p-8 rounded-[2rem]">
-<h3 class="font-bold text-[#EEEEF0] mb-4 text-lg">Ce que je fais vraiment dans ce rythme&nbsp;:</h3>
-<ul class="space-y-3 text-[#8A8F98] text-[15px]">
-<li class="flex gap-3"><span class="text-[#7568FF]">→</span> Je t'aide à décider vite quand c'est flou.</li>
-<li class="flex gap-3"><span class="text-[#7568FF]">→</span> Je mets de l'ordre dans l'organisation (rôles, priorités, outils).</li>
-<li class="flex gap-3"><span class="text-[#7568FF]">→</span> Je fais avancer les sujets sur lesquels tu veux gagner du terrain.</li>
+<div class="mt-8 bg-[#0E0F11] border border-edge p-8 rounded-[2rem]">
+<h3 class="font-bold text-ink mb-4 text-lg">Ce que je fais vraiment dans ce rythme&nbsp;:</h3>
+<ul class="space-y-3 text-muted text-[15px]">
+<li class="flex gap-3"><span class="text-accent">→</span> Je vous aide à décider vite quand c'est flou.</li>
+<li class="flex gap-3"><span class="text-accent">→</span> Je mets de l'ordre dans l'organisation (rôles, priorités, outils).</li>
+<li class="flex gap-3"><span class="text-accent">→</span> Je fais avancer les sujets sur lesquels vous voulez gagner du terrain.</li>
 </ul>
 </div>
 </div>
 <!-- ScoreCards ROI (signature) -->
 <div class="mb-16">
-<div class="sec-eyebrow"><span>/// Preuves chiffrées</span><span class="num">05</span></div>
-<h2 class="text-3xl font-display font-bold text-[#EEEEF0] mb-10">Des résultats mesurés</h2>
+<div class="sec-eyebrow"><span>/// Preuves chiffrées</span></div>
+<h2 class="text-3xl font-display font-bold text-ink mb-10">Des résultats mesurés</h2>
 <div class="scorecards">
 <div class="scorecard" data-count="3185">
 <div class="sc-label">Temps récupéré / an</div>
@@ -204,7 +204,7 @@ Et, si on continue, une idée du rythme.
 <div class="sc-label">Installation PAC</div>
 <div class="sc-value">20<span class="unit">min</span></div>
 <div class="sc-ba"><span class="before">48 h</span><span class="arrow">→</span><span class="after">20 min</span></div>
-<div class="sc-caption">BDR Therma · appli cadrée en 5 jours</div>
+<div class="sc-caption">BDR Thermea · appli cadrée en 5 jours</div>
 </div>
 <div class="scorecard" data-count="12">
 <div class="sc-label">Temps facturable</div>
@@ -222,66 +222,66 @@ Et, si on continue, une idée du rythme.
 </div>
 <!-- Cas Vécus -->
 <div class="mb-24">
-<h2 class="text-3xl font-display font-bold text-[#EEEEF0] mb-10">Cas vécus</h2>
+<h2 class="text-3xl font-display font-bold text-ink mb-10">Cas vécus</h2>
 <div class="space-y-4">
-<details class="group bg-[#141518] rounded-[1.5rem] border border-[#2E3138] overflow-hidden">
-<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-[#1A1B1E] transition-colors font-medium text-[#EEEEF0] list-none select-none text-lg">
+<details class="group bg-surface rounded-[1.5rem] border border-edge overflow-hidden">
+<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-surface-hover transition-colors font-medium text-ink list-none select-none text-lg">
 <span>Cas 1 — +3 185 h/an rendues à l'équipe</span>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#8A8F98] transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
 </summary>
-<div class="px-8 pb-8 pt-0 text-[15px] text-[#8A8F98] border-t border-[#2E3138] mt-2 pt-6 space-y-4">
-<p><strong class="text-[#EEEEF0]">Contexte&nbsp;:</strong> PME de services (30 personnes), beaucoup de temps passé à se coordonner.</p>
-<p><strong class="text-[#EEEEF0]">Ce qu'on a fait&nbsp;:</strong> on a simplifié réunions et communication.</p>
-<p><strong class="text-[#EEEEF0]">Résultat&nbsp;:</strong> +3 185 h/an récupérées — presque 2 temps plein, sans recruter.</p>
-<p class="text-[#7568FF] font-medium">Idée du retour&nbsp;: x4,5 par rapport à l'effort investi.</p>
+<div class="px-8 pb-8 pt-0 text-[15px] text-muted border-t border-edge mt-2 pt-6 space-y-4">
+<p><strong class="text-ink">Contexte&nbsp;:</strong> PME de services (30 personnes), beaucoup de temps passé à se coordonner.</p>
+<p><strong class="text-ink">Ce qu'on a fait&nbsp;:</strong> on a simplifié réunions et communication.</p>
+<p><strong class="text-ink">Résultat&nbsp;:</strong> +3 185 h/an récupérées — presque 2 temps plein, sans recruter.</p>
+<p class="text-accent font-medium">Idée du retour&nbsp;: x4,5 par rapport à l'effort investi.</p>
 </div>
 </details>
-<details class="group bg-[#141518] rounded-[1.5rem] border border-[#2E3138] overflow-hidden">
-<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-[#1A1B1E] transition-colors font-medium text-[#EEEEF0] list-none select-none text-lg">
-<span>Cas 2 — BDR Therma&nbsp;: 48h → 20 min par intervention</span>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#8A8F98] transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+<details class="group bg-surface rounded-[1.5rem] border border-edge overflow-hidden">
+<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-surface-hover transition-colors font-medium text-ink list-none select-none text-lg">
+<span>Cas 2 — BDR Thermea&nbsp;: 48h → 20 min par intervention</span>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
 </summary>
-<div class="px-8 pb-8 pt-0 text-[15px] text-[#8A8F98] border-t border-[#2E3138] mt-2 pt-6 space-y-4">
-<p><strong class="text-[#EEEEF0]">Contexte&nbsp;:</strong> installation de pompes à chaleur, un process long et délicat.</p>
-<p><strong class="text-[#EEEEF0]">Ce qu'on a fait&nbsp;:</strong> une appli mobile très simple, cadrée en 5 jours.</p>
-<p><strong class="text-[#EEEEF0]">Résultat&nbsp;:</strong> de 48h à 20 minutes par installation.</p>
-<p class="text-[#7568FF] font-medium">Idée du retour&nbsp;: 2 jours gagnés à chaque fois — rentabilisé très vite.</p>
+<div class="px-8 pb-8 pt-0 text-[15px] text-muted border-t border-edge mt-2 pt-6 space-y-4">
+<p><strong class="text-ink">Contexte&nbsp;:</strong> installation de pompes à chaleur, un process long et délicat.</p>
+<p><strong class="text-ink">Ce qu'on a fait&nbsp;:</strong> une appli mobile très simple, cadrée en 5 jours.</p>
+<p><strong class="text-ink">Résultat&nbsp;:</strong> de 48h à 20 minutes par installation.</p>
+<p class="text-accent font-medium">Idée du retour&nbsp;: 2 jours gagnés à chaque fois — rentabilisé très vite.</p>
 </div>
 </details>
-<details class="group bg-[#141518] rounded-[1.5rem] border border-[#2E3138] overflow-hidden">
-<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-[#1A1B1E] transition-colors font-medium text-[#EEEEF0] list-none select-none text-lg">
+<details class="group bg-surface rounded-[1.5rem] border border-edge overflow-hidden">
+<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-surface-hover transition-colors font-medium text-ink list-none select-none text-lg">
 <span>Cas 3 — Plus de marge et de souffle</span>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#8A8F98] transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
 </summary>
-<div class="px-8 pb-8 pt-0 text-[15px] text-[#8A8F98] border-t border-[#2E3138] mt-2 pt-6 space-y-4">
-<p><strong class="text-[#EEEEF0]">Contexte&nbsp;:</strong> PME IT (90 personnes), forte croissance.</p>
-<p><strong class="text-[#EEEEF0]">Ce qu'on a fait&nbsp;:</strong> Règles de travail simples, outils mieux tenus, moins de réunions.</p>
-<p><strong class="text-[#EEEEF0]">Résultat&nbsp;:</strong> +12% de temps facturable, −12% de délais, turnover −3 pts, qualité +18%.</p>
-<p class="text-[#7568FF] font-medium">Idée du retour&nbsp;: x5,5 sur la période.</p>
+<div class="px-8 pb-8 pt-0 text-[15px] text-muted border-t border-edge mt-2 pt-6 space-y-4">
+<p><strong class="text-ink">Contexte&nbsp;:</strong> PME IT (90 personnes), forte croissance.</p>
+<p><strong class="text-ink">Ce qu'on a fait&nbsp;:</strong> Règles de travail simples, outils mieux tenus, moins de réunions.</p>
+<p><strong class="text-ink">Résultat&nbsp;:</strong> +12% de temps facturable, −12% de délais, turnover −3 pts, qualité +18%.</p>
+<p class="text-accent font-medium">Idée du retour&nbsp;: x5,5 sur la période.</p>
 </div>
 </details>
-<details class="group bg-[#141518] rounded-[1.5rem] border border-[#2E3138] overflow-hidden">
-<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-[#1A1B1E] transition-colors font-medium text-[#EEEEF0] list-none select-none text-lg">
+<details class="group bg-surface rounded-[1.5rem] border border-edge overflow-hidden">
+<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-surface-hover transition-colors font-medium text-ink list-none select-none text-lg">
 <span>Cas 4 — Villette Makerz&nbsp;: une formation en ligne qui tourne seule</span>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#8A8F98] transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
 </summary>
-<div class="px-8 pb-8 pt-0 text-[15px] text-[#8A8F98] border-t border-[#2E3138] mt-2 pt-6 space-y-4">
-<p><strong class="text-[#EEEEF0]">Contexte&nbsp;:</strong> accueillir une cohorte de 30+ personnes sans logistique lourde.</p>
-<p><strong class="text-[#EEEEF0]">Ce qu'on a fait&nbsp;:</strong> un espace Notion complet (planning, supports, ressources).</p>
-<p><strong class="text-[#EEEEF0]">Résultat&nbsp;:</strong> Plateforme utilisable sans technique, onboarding autonome en 1 semaine.</p>
-<p class="text-[#7568FF] font-medium">Idée du retour&nbsp;: une petite équipe encaisse beaucoup plus, sereinement.</p>
+<div class="px-8 pb-8 pt-0 text-[15px] text-muted border-t border-edge mt-2 pt-6 space-y-4">
+<p><strong class="text-ink">Contexte&nbsp;:</strong> accueillir une cohorte de 30+ personnes sans logistique lourde.</p>
+<p><strong class="text-ink">Ce qu'on a fait&nbsp;:</strong> un espace Notion complet (planning, supports, ressources).</p>
+<p><strong class="text-ink">Résultat&nbsp;:</strong> Plateforme utilisable sans technique, onboarding autonome en 1 semaine.</p>
+<p class="text-accent font-medium">Idée du retour&nbsp;: une petite équipe encaisse beaucoup plus, sereinement.</p>
 </div>
 </details>
-<details class="group bg-[#141518] rounded-[1.5rem] border border-[#2E3138] overflow-hidden">
-<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-[#1A1B1E] transition-colors font-medium text-[#EEEEF0] list-none select-none text-lg">
+<details class="group bg-surface rounded-[1.5rem] border border-edge overflow-hidden">
+<summary class="flex justify-between items-center p-8 cursor-pointer hover:bg-surface-hover transition-colors font-medium text-ink list-none select-none text-lg">
 <span>Cas 5 — Bresse Vallons&nbsp;: une fusion qui prend vie</span>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#8A8F98] transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
 </summary>
-<div class="px-8 pb-8 pt-0 text-[15px] text-[#8A8F98] border-t border-[#2E3138] mt-2 pt-6 space-y-4">
-<p><strong class="text-[#EEEEF0]">Contexte&nbsp;:</strong> fusion sur le papier depuis 2 ans, mais des silos dans la réalité.</p>
-<p><strong class="text-[#EEEEF0]">Ce qu'on a fait&nbsp;:</strong> cartographie, clarification des rôles, organigramme unifié.</p>
-<p><strong class="text-[#EEEEF0]">Résultat&nbsp;:</strong> une fusion réelle, une organisation claire, un vrai travail d'équipe.</p>
-<p class="text-[#7568FF] font-medium">Idée du retour&nbsp;: l'énergie revient là où elle est utile.</p>
+<div class="px-8 pb-8 pt-0 text-[15px] text-muted border-t border-edge mt-2 pt-6 space-y-4">
+<p><strong class="text-ink">Contexte&nbsp;:</strong> fusion sur le papier depuis 2 ans, mais des silos dans la réalité.</p>
+<p><strong class="text-ink">Ce qu'on a fait&nbsp;:</strong> cartographie, clarification des rôles, organigramme unifié.</p>
+<p><strong class="text-ink">Résultat&nbsp;:</strong> une fusion réelle, une organisation claire, un vrai travail d'équipe.</p>
+<p class="text-accent font-medium">Idée du retour&nbsp;: l'énergie revient là où elle est utile.</p>
 </div>
 </details>
 </div>
@@ -289,61 +289,61 @@ Et, si on continue, une idée du rythme.
 <!-- ROI & Questions -->
 <div class="mb-24 space-y-12">
 <div>
-<h2 class="text-2xl font-display font-bold text-[#EEEEF0] mb-8">ROI (sans blabla)</h2>
+<h2 class="text-2xl font-display font-bold text-ink mb-8">ROI (sans blabla)</h2>
 <div class="grid sm:grid-cols-2 gap-4">
-<div class="flex items-center gap-4 p-5 bg-[#141518] border border-[#2E3138] rounded-2xl">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] w-5 h-5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-<span class="text-[#EEEEF0] font-medium">Plus de temps utile</span>
+<div class="flex items-center gap-4 p-5 bg-surface border border-edge rounded-2xl">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent w-5 h-5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+<span class="text-ink font-medium">Plus de temps utile</span>
 </div>
-<div class="flex items-center gap-4 p-5 bg-[#141518] border border-[#2E3138] rounded-2xl">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] w-5 h-5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-<span class="text-[#EEEEF0] font-medium">Plus de marge pour décider</span>
+<div class="flex items-center gap-4 p-5 bg-surface border border-edge rounded-2xl">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent w-5 h-5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span class="text-ink font-medium">Plus de marge pour décider</span>
 </div>
-<div class="flex items-center gap-4 p-5 bg-[#141518] border border-[#2E3138] rounded-2xl">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] w-5 h-5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-<span class="text-[#EEEEF0] font-medium">Plus de clarté</span>
+<div class="flex items-center gap-4 p-5 bg-surface border border-edge rounded-2xl">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent w-5 h-5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+<span class="text-ink font-medium">Plus de clarté</span>
 </div>
-<div class="flex items-center gap-4 p-5 bg-[#141518] border border-[#2E3138] rounded-2xl">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#7568FF] w-5 h-5"><polyline points="20 6 9 17 4 12"/></svg>
-<span class="text-[#EEEEF0] font-medium">Plus de livrables qui atterrissent</span>
+<div class="flex items-center gap-4 p-5 bg-surface border border-edge rounded-2xl">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent w-5 h-5"><polyline points="20 6 9 17 4 12"/></svg>
+<span class="text-ink font-medium">Plus de livrables qui atterrissent</span>
 </div>
 </div>
-<p class="text-[14px] text-[#9CA3AF] mt-6 italic">Je ne te promets pas une formule magique. Je préfère regarder tes chiffres, poser des hypothèses simples et rester prudent.</p>
+<p class="text-[14px] text-subtle mt-6 italic">Je ne vous promets pas une formule magique. Je préfère regarder vos chiffres, poser des hypothèses simples et rester prudent.</p>
 </div>
-<div class="bg-[#141518] p-8 md:p-10 rounded-[2rem] border border-[#2E3138]">
-<h2 class="text-2xl font-display font-bold text-[#7568FF] mb-8">Deux repères pour bien démarrer</h2>
+<div class="bg-surface p-8 md:p-10 rounded-[2rem] border border-edge">
+<h2 class="text-2xl font-display font-bold text-accent mb-8">Deux repères pour bien démarrer</h2>
 <div class="space-y-8">
 <div class="flex gap-6 items-start">
-<span class="font-display font-bold text-[#7568FF] text-2xl bg-[#7568FF]/10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0">1</span>
+<span class="font-display font-bold text-accent text-2xl bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0">1</span>
 <div>
-<p class="text-[17px] text-[#EEEEF0] font-medium mb-1 text-balance">Tu gardes le lead sur ton entreprise.</p>
-<p class="text-[#9CA3AF] text-sm">C'est toi qui décides.</p>
+<p class="text-[17px] text-ink font-medium mb-1 text-balance">Vous gardez le lead sur votre entreprise.</p>
+<p class="text-subtle text-sm">C'est vous qui décidez.</p>
 </div>
 </div>
 <div class="flex gap-6 items-start">
-<span class="font-display font-bold text-[#7568FF] text-2xl bg-[#7568FF]/10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0">2</span>
+<span class="font-display font-bold text-accent text-2xl bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0">2</span>
 <div>
-<p class="text-[17px] text-[#EEEEF0] font-medium mb-1 text-balance">Tu as envie de faire de la place.</p>
-<p class="text-[#9CA3AF] text-sm">Pour ce qui compte vraiment.</p>
+<p class="text-[17px] text-ink font-medium mb-1 text-balance">Vous avez envie de faire de la place.</p>
+<p class="text-subtle text-sm">Pour ce qui compte vraiment.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <!-- Footer Meeting -->
-<div class="text-center py-20 border-t border-[#2E3138]">
-<h2 class="text-4xl md:text-5xl font-display font-bold text-[#EEEEF0] mb-8">On se parle&nbsp;?</h2>
-<p class="text-[#9CA3AF] mb-12 italic text-lg max-w-xl mx-auto text-balance">"Il ne reste plus qu'à se rencontrer."</p>
-<a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full text-[16px] font-medium transition-all duration-300 border transform active:scale-95 cursor-pointer bg-[#7568FF] border-[#7568FF] text-white hover:bg-[#6457E5] shadow-lg shadow-[#7568FF]/20 group">
+<div class="text-center py-20 border-t border-edge">
+<h2 class="text-4xl md:text-5xl font-display font-bold text-ink mb-8">On se parle&nbsp;?</h2>
+<p class="text-subtle mb-12 italic text-lg max-w-xl mx-auto text-balance">"Il ne reste plus qu'à se rencontrer."</p>
+<a href="https://cal.com/fabrice-liut/45-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full text-[16px] font-medium btn-primary shadow-lg shadow-accent/20 group">
 Prendre 45 min
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80 group-hover:opacity-100 transition-transform group-hover:translate-x-0.5 ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 </a>
 </div>
-<footer class="py-12 text-center text-[#9CA3AF] text-[11px] font-mono border-t border-[#2E3138]">
-<p>&copy; <span class="year-auto"></span> Liut.me — avec cœur.</p>
+<footer class="py-12 text-center text-subtle text-[11px] font-mono border-t border-edge">
+<p>&copy; <span class="year-auto">2026</span> Liut.me — avec cœur.</p>
 </footer>
 </div>
 </main>
-<script src="/script.js?v=20261115" defer></script>
+<script src="/script.js?v=20261115-v2" defer></script>
 </body>
 </html>
