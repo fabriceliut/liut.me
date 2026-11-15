@@ -100,6 +100,12 @@
 body.menu-open .grain-overlay { display: none; }
 #mobile-menu[hidden] { display: none !important; }
 
+/* Le grain est un détail décoratif ; sur mobile il ne doit jamais ralentir
+   le premier paint ni la restauration BFCache de la page d'accueil. */
+@media (max-width: 1023px) {
+  .grain-overlay { display: none; }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0B0C0E; }
