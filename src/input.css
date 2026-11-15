@@ -97,7 +97,6 @@
 
 /* Le bruit SVG en overlay force une recomposition plein écran sur mobile.
    Le fond opaque du menu reste identique visuellement sans cette couche. */
-body.menu-open .grain-overlay { display: none; }
 #mobile-menu[hidden] { display: none !important; }
 
 /* Le grain est un détail décoratif ; sur mobile il ne doit jamais ralentir
