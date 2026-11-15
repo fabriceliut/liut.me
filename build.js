@@ -4,6 +4,7 @@ const path = require('path');
 const OUT = '_site';
 const FILES = [
   'index.html',
+  '404.html',
   'script.js',
   'robots.txt',
   'sitemap.xml',
@@ -21,14 +22,13 @@ const FILES = [
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'dist'), { recursive: true });
 fs.mkdirSync(path.join(OUT, 'fonts'), { recursive: true });
-fs.mkdirSync(path.join(OUT, 'assets', 'books'), { recursive: true });
 
 // Copy static files
 for (const f of FILES) {
   fs.copyFileSync(f, path.join(OUT, f));
 }
 
-// Copy book visuals and download assets
+// Copy folders (book visuals, ebook, meeting page)
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
@@ -50,4 +50,4 @@ for (const f of fontFiles) {
   fs.copyFileSync(path.join('fonts', f), path.join(OUT, 'fonts', f));
 }
 
-console.log(`Built _site/ with ${FILES.length + 1 + fontFiles.length} files`);
+console.log(`Built ${OUT}/ (${FILES.length} files, ${fontFiles.length} fonts, assets & pages)`);
