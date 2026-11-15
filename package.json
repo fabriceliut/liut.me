@@ -1,8 +1,8 @@
 {
   "name": "liut.me",
   "version": "1.0.0",
+  "private": true,
   "description": "Site vitrine statique, léger et prêt au déploiement.",
-  "main": "script.js",
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --minify && node build.js",
     "dev": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
@@ -12,14 +12,13 @@
     "type": "git",
     "url": "git+https://github.com/fabriceliut/liut.me.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Fabrice Liut",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/fabriceliut/liut.me/issues"
   },
-  "homepage": "https://github.com/fabriceliut/liut.me#readme",
+  "homepage": "https://liut.me",
   "devDependencies": {
     "playwright": "^1.61.1",
     "sharp": "^0.34.5",
