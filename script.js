@@ -1,3 +1,9 @@
+// Évite que le navigateur recalcule/restaure une position de scroll pendant
+// un retour inter-page : le retour doit rester déterministe et instantané.
+if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+}
+
 // 1. Gestion de la Date Automatique
 const currentYear = new Date().getFullYear();
 document.querySelectorAll('.year-auto').forEach(el => {
