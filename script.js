@@ -68,9 +68,6 @@ function toggleMobileMenu() {
     const opening = menu.hidden;
     if (opening) {
         menu.hidden = false;
-        document.body.dataset.menuOverflow = document.body.style.overflow || '';
-        document.body.style.overflow = 'hidden';
-        document.body.classList.add('menu-open');
         menu.setAttribute('aria-hidden', 'false');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'true');
@@ -79,17 +76,13 @@ function toggleMobileMenu() {
         if (menuIcon) {
             menuIcon.innerHTML = '<line x1="5" x2="19" y1="5" y2="19"/><line x1="19" x2="5" y1="5" y2="19"/>';
         }
-        menu.querySelector('a, button')?.focus();
+        requestAnimationFrame(() => menu.querySelector('a, button')?.focus());
     } else {
         menu.hidden = true;
-        document.body.style.overflow = document.body.dataset.menuOverflow || '';
-        delete document.body.dataset.menuOverflow;
-        document.body.classList.remove('menu-open');
         menu.setAttribute('aria-hidden', 'true');
         if (toggle) {
             toggle.setAttribute('aria-expanded', 'false');
             toggle.setAttribute('aria-label', 'Ouvrir le menu');
-            toggle.focus();
         }
         if (menuIcon) {
             menuIcon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
