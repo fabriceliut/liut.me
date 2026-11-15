@@ -52,6 +52,7 @@ ok('Route 45 minutes répond 200', meeting && meeting.status() === 200, `status 
 ok('Route 45 minutes possède un H1', await page.locator('main h1').count() === 1);
 ok('Canonical route présent', (await page.locator('link[rel="canonical"]').getAttribute('href'))?.endsWith('/comment-ca-se-passe/'));
 ok('ScoreCards présentes', await page.locator('.scorecard').count() >= 4);
+ok('Retour sans animation bloquante', await page.locator('main').evaluate((el) => el.getAnimations().length === 0));
 const firstDetails = page.locator('details').first();
 const summary = firstDetails.locator('summary');
 if (await summary.count()) { await summary.click(); await page.waitForTimeout(100); }
