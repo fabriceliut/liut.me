@@ -31,6 +31,7 @@
 /* ============================================================
    DESIGN SYSTEM — Tokens (Swiss minimal dark)
    Accent #7568FF conservé, converti en oklch (rendu identique).
+   Les mêmes couleurs existent côté Tailwind (tailwind.config.js).
    ============================================================ */
 @layer base {
   :root {
@@ -49,6 +50,13 @@
   body { font-family: var(--font-body); font-feature-settings: "liga", "kern"; }
   .tnum, .font-mono { font-variant-numeric: tabular-nums; }
   :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 4px; }
+}
+
+/* Bouton principal (« Prendre 45 min ») — taille et ombre restent dans le HTML */
+@layer components {
+  .btn-primary {
+    @apply border border-accent bg-accent text-white cursor-pointer transition-all duration-300 hover:bg-accent-strong active:scale-95;
+  }
 }
 
 /* Skip link (a11y) */
@@ -113,7 +121,6 @@ html.menu-open { overflow: hidden; }
 
 /* Utilities */
 .text-balance { text-wrap: balance; }
-.overflow-hidden-body { overflow: hidden; }
 
 /* View transitions */
 .hidden-view { display: none !important; }
@@ -134,6 +141,7 @@ details summary::-webkit-details-marker { display: none; }
   font-family: var(--font-mono); font-size: 9px; font-weight: 600; line-height: 1;
   background: var(--color-accent-soft); color: var(--color-accent);
 }
+
 /* Aspect-ratio strict sur les favicons (évite le warning Lighthouse) */
 img[src*="s2/favicons"] { aspect-ratio: 1 / 1; width: 16px; height: 16px; }
 
@@ -154,7 +162,6 @@ img[src*="s2/favicons"] { aspect-ratio: 1 / 1; width: 16px; height: 16px; }
   }
   .sc-bar > i { transform: scaleX(1) !important; }
 }
-
 
 /* Books — editorial resource cards */
 .books-section { background: #0E0F11; }
@@ -190,6 +197,7 @@ img[src*="s2/favicons"] { aspect-ratio: 1 / 1; width: 16px; height: 16px; }
 .book-card-meta { color: var(--color-muted); font: 400 10px/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; }
 .book-card-cta { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; color: var(--color-text); font-size: 14px; font-weight: 600; white-space: nowrap; transition: color .25s ease, gap .25s ease; }
 .book-card-cta:hover { color: var(--color-accent); gap: 10px; }
+
 @media (max-width: 760px) {
   .book-card { display: flex; flex-direction: column; }
   .book-card-media { aspect-ratio: 16 / 9; min-height: 220px; border-right: 0; border-bottom: 1px solid var(--color-border); }
