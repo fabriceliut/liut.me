@@ -2,15 +2,11 @@
 module.exports = {
   content: ['./index.html', './comment-ca-se-passe/**/*.html', './script.js'],
   safelist: [
-    'bg-[#0B0C0E]/80',
-    'backdrop-blur-md',
+    'bg-[#0B0C0E]/95',
     'border-[#2E3138]',
+    'border-transparent',
     'py-3',
     'py-6',
-    'border-transparent',
-    'flex',
-    'hidden',
-    'overflow-hidden-body',
   ],
   theme: {
     extend: {
