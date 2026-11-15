@@ -144,11 +144,13 @@ window.addEventListener('scroll', () => {
     window.requestAnimationFrame(() => {
         const nav = document.getElementById('navbar');
         if (window.scrollY > 20) {
-            nav.classList.add('bg-[#0B0C0E]/80', 'backdrop-blur-md', 'border-[#2E3138]');
+            // Fond opaque : évite de déclencher un backdrop-filter coûteux à chaque
+            // entrée/sortie du scroll, tout en gardant la navbar lisible.
+            nav.classList.add('bg-[#0B0C0E]/95', 'border-[#2E3138]');
             nav.classList.remove('py-6', 'border-transparent');
             nav.classList.add('py-3');
         } else {
-            nav.classList.remove('bg-[#0B0C0E]/80', 'backdrop-blur-md', 'border-[#2E3138]', 'py-3');
+            nav.classList.remove('bg-[#0B0C0E]/95', 'border-[#2E3138]', 'py-3');
             nav.classList.add('py-6', 'border-transparent');
         }
         scrollTicking = false;
